@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "assetmanagement": {
+    "Project-AssetManagement-FrontEnd": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/assetmanagement",
+            "outputPath": "dist/Project-AssetManagement-FrontEnd",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "assetmanagement:build"
+            "browserTarget": "Project-AssetManagement-FrontEnd:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "assetmanagement:build:production"
+              "browserTarget": "Project-AssetManagement-FrontEnd:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "assetmanagement:build"
+            "browserTarget": "Project-AssetManagement-FrontEnd:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "assetmanagement:serve"
+            "devServerTarget": "Project-AssetManagement-FrontEnd:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "assetmanagement:serve:production"
+              "devServerTarget": "Project-AssetManagement-FrontEnd:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "assetmanagement"
+  "defaultProject": "Project-AssetManagement-FrontEnd"
 }

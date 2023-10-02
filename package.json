@@ -1,5 +1,5 @@
 {
-  "name": "assetmanagement",
+  "name": "project-asset-management-front-end",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

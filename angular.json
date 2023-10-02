@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Project-AssetManagement-FrontEnd"
+    }
+  },
+  "defaultProject": "Project-AssetManagement-FrontEnd",
+  "cli": {
+    "analytics": false
+  }
 }

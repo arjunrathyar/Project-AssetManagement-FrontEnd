@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <h1>
+            Enter your credentials
+        </h1>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
+            <!--User Name-->
+            <div class="form-group">
+                <input type="text" placeholder="Enter User Name" formControlName="userName" class="form-control">
+            </div>
+            <!--Validation Message-->
+            <div class="validation-error" *ngIf="isSubmitted && formControls.userName.errors">
+                <div *ngIf="formControls.userName.errors.required">  
+                    Username is invalid or required!!!
+                </div>
+            </div>
+            <br>
+            <!--Password-->
+            <div class="form-group">
+                <input type="password" placeholder="Enter User Password" formControlName="password" class="form-control">
+            </div>
+            <!--Validation Message-->
+            <div class="validation-error" *ngIf="isSubmitted && formControls.password.errors">
+                <div *ngIf="formControls.password.errors.required">  
+                    Pasword is invalid or required!!!
+                </div>
+            </div>
+            <br>
+            <!--Submit button-->
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary btn-dark form-control">
+                    Submit
+                </button>
+            </div>
+            <div *ngIf="error" class="validation-error">
+                {{error}}
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-export interface AssetDefinition {
+export class AssetDefinition {
     id: number;
     assetName: string;
     assetTypeId: number;
@@ -7,12 +7,12 @@ export interface AssetDefinition {
     assetClass: AssetClass;
   }
   
-  export interface AssetType {
+  export class AssetType {
     id: number;
     name: string;
   }
   
-  export interface AssetClass {
+  export class AssetClass {
     id: number;
     name: string;
   }

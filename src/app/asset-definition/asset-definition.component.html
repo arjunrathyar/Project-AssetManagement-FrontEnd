@@ -6,6 +6,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ assetDefinition.assetName }}</h5>
+            <p>Asset Type: {{ assetDefinition.assetType.name }}</p> <!-- Display Asset Type -->
             <button class="btn btn-primary" (click)="editAssetDefinition(assetDefinition)">Edit</button>
           </div>
         </div>
@@ -21,6 +22,12 @@
             <input type="text" [(ngModel)]="selectedAssetDefinition.assetName" name="assetName" class="form-control" required>
           </div>
 
+          <!-- Display Asset Type -->
+          <div class="mb-3">
+            <label for="assetType" class="form-label">Asset Type:</label>
+            <input type="text" [(ngModel)]="selectedAssetDefinition.assetType.name" name="assetType" class="form-control" readonly>
+          </div>
+
           <!-- Add other fields here if needed -->
 
           <button type="submit" class="btn btn-primary">Save</button>
@@ -31,6 +38,12 @@
           <div class="mb-3">
             <label for="assetName" class="form-label">Asset Name:</label>
             <input type="text" [(ngModel)]="selectedAssetDefinition.assetName" name="assetName" class="form-control" required>
+          </div>
+
+          <!-- Display Asset Type -->
+          <div class="mb-3">
+            <label for="assetType" class="form-label">Asset Type:</label>
+            <input type="text" [(ngModel)]="selectedAssetDefinition.assetType.name" name="assetType" class="form-control" readonly>
           </div>
 
           <!-- Add other fields here if needed -->
@@ -45,6 +58,16 @@
           <label for="newAssetName">Asset Name:</label>
           <input type="text" [(ngModel)]="newAssetName" name="newAssetName" class="form-control" required>
         </div>
+
+        <!-- Select Asset Type -->
+        <div class="form-group">
+          <label for="newAssetType">Asset Type:</label>
+          <select [(ngModel)]="newAssetTypeId" name="newAssetType" class="form-control" required>
+            <option value="0" selected disabled>===========SELECT ASSET TYPE===========</option>
+            <option *ngFor="let assetType of assetTypes" [value]="assetType.id">{{ assetType.name }}</option>
+          </select>
+        </div>
+
         <button class="btn btn-success" (click)="submitNewAsset()">Submit</button>
       </div>
     </div>

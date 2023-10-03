@@ -1,4 +1,4 @@
-export interface AssetClass {
+export class AssetClass {
     id: number;
     name: string;
   }

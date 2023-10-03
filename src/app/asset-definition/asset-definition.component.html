@@ -62,9 +62,10 @@
         <!-- Select Asset Type -->
         <div class="form-group">
           <label for="newAssetType">Asset Type:</label>
-          <select [(ngModel)]="newAssetTypeId" name="newAssetType" class="form-control" required>
+          <select name="assetClassId" id="assetClassId" #assetClassId="ngModel"
+          [(ngModel)]="newAssetTypeId" name="newAssetType" class="form-control" required>
             <option value="0" selected disabled>===========SELECT ASSET TYPE===========</option>
-            <option *ngFor="let assetType of assetTypes" [value]="assetType.id">{{ assetType.name }}</option>
+            <option *ngFor="let assettype of assetService.asset" value="{{assettype.id}}">{{ assettype.assetType }}</option>
           </select>
         </div>
 

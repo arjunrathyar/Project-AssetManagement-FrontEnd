@@ -1,5 +1,5 @@
 <div class="container">
-    <h3>New Vendor Info</h3>
+    <h3>Edit Vendor Info</h3>
     <hr>
     <!--Template Driven From-->
     <form name="frmEmployee" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
@@ -8,7 +8,6 @@
         <div class="form-group">
             <input type="hidden" readonly name="id" [(ngModel)]="vendorCreationService.formVendorData.id" />
         </div>
-
         <!--Drop down list for Vendor name-->
         
         <div class="form-group">
@@ -120,7 +119,7 @@
         <!--Submit-->
         <div class="form-group">
             <button type="submit" class="btn btn-lg btn-primary form-control"
-                [disabled]="!(form.valid && form.dirty)">INSERT</button>
+                [disabled]="!(form.valid && form.dirty)">UPDATE</button>
 
         </div>
     </form>

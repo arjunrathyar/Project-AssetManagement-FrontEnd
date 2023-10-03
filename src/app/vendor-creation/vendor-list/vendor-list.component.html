@@ -1,7 +1,7 @@
 <div class="container">
     <!--Add Employee-->
     <div class="header">
-        <a [routerLink]="['/vendors/add']" role="button" class="btn btn-outline-primary custom-margin">
+        <a [routerLink]="['/vendor-creation/add']" role="button" class="btn btn-outline-primary custom-margin">
             <span><i class="fa fa-user-plus fa-lg"></i></span>
             <br>Add Vendor</a>
 
@@ -12,15 +12,16 @@
                 <th>ID</th>
                 <th>Vendor Name</th>
                 <th>Type</th>
-                <th>Asset Type Id</th>
+                <th>Asset Type</th>
                 <th>Valid From</th>
                 <th>Valid To</th>
                 <th>Address</th>
                 <th>Active</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let vendor of vendorCreationService.vendor">
+            <tr *ngFor="let vendor of vendorCreationService.vendors">
                 <td>{{vendor.vendorId}}</td>
                 <td>{{vendor.vendorName}}</td>
                 <td>{{vendor.vendorType}}</td>

@@ -60,7 +60,7 @@
                 <td>{{purchaseOrder.assetQuantity}}</td>
                 <td>{{purchaseOrder.assetOrderDate | date: "dd-MMM-yyyy"}}</td>
                 <td>{{purchaseOrder.assetDeliveryDate | date: "dd-MMM-yyyy"}}</td>
-                <td>{{purchaseOrder.assetStatusID}}</td>
+                <td>{{purchaseOrder.status.status}}</td>
                 <!--
                 <td><input type="checkbox" [checked]="employee.active" disabled></td>
                 <td>

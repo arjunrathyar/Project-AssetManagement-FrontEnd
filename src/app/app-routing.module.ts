@@ -4,6 +4,8 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { AuthComponent } from './auth/auth.component';
 import { SharedComponent } from './shared/shared.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
+import { VendorCreationComponent } from './vendor-creation/vendor-creation.component';
+
 
 const routes: Routes = [
 
@@ -13,12 +15,18 @@ const routes: Routes = [
   },
 
   //lazy loading
-
   {
     path: "purchase-order",
     component: PurchaseOrderComponent,
     loadChildren: () => import('./purchase-order/purchase-order.module').then(x => x.PurchaseOrderModule)
   },
+
+  {
+    path: "vendor-creation",
+    component: VendorCreationComponent,
+    loadChildren: () => import('./vendor-creation/vendor-creation.module').then(x => x.VendorCreationModule)
+  },
+
 
   {
     path: "shared",

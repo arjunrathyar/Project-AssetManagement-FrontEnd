@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("ROLE_ID",Response.data.role);
           localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
 
-          this.router.navigate(['/asset-definition/auth/login']);
+          this.router.navigate(['/home/admin']);
         }
         else if (Response.data.role==2) {
           console.log("manager");
@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("ROLE_ID",Response.data.role);
           localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
 
-          this.router.navigate(['auth/login']);
+          this.router.navigate(['home/user']);
         }
         else {
           this.error = " Sorry ! invalid credentials not allowes to this system"

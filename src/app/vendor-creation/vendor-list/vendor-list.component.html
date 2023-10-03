@@ -31,8 +31,8 @@
                 <td>{{vendor.address}}</td>
                 <td><input type="checkbox" [checked]="vendor.isActive" disabled></td>
                 <td><button type="button" class="btn btn-sm btn-outline-info"
-                    (click)="updateEmployee(vendor)"><i class="fa fa-edit"></i></button>
-                    &nbsp;<button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteEmployee(employee.id)"><i class="fa fa-trash"></i></button>
+                    (click)="updateVendor(vendor)"><i class="fa fa-edit"></i></button>
+                    &nbsp;<button type="button" class="btn btn-sm btn-outline-danger" (click)="disableVendor(vendor.id)"><i class="fa fa-trash"></i></button>
                     </td>
             </tr>
         </tbody>

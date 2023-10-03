@@ -5,6 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 import { SharedComponent } from './shared/shared.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
 import { AssetDefinitionComponent } from './asset-definition/asset-definition.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,11 @@ const routes: Routes = [
     path: "auth",
     component: AuthComponent,
     loadChildren: () => import('./auth/auth.module').then(x => x.AuthModule)
+  },
+  {
+    path: "home",
+    component: HomeComponent,
+    loadChildren: () => import('./home/home.module').then(x => x.HomeModule)
   },
 
   //Wild card routes

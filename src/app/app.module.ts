@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AssetDefinitionModule } from './asset-definition/asset-definition.module'; // Import the module
+import { AssetDefinitionModule } from './asset-definition/asset-definition.module';
 
 @NgModule({
   declarations: [

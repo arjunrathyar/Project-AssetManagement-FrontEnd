@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AssetDefinitionListComponent } from 'src/app/asset-definition/asset-definition-list/asset-definition-list.component';
-import { AssetDefinitionRoutingModule } from './asset-definition-routing.module';
-import { AssetComponent } from './asset/asset.component';
+
+import { AssetDefinitionListComponent } from './asset-definition-list/asset-definition-list.component';
+import { AssetDefinitionComponent } from 'src/app/asset-definition/asset-definition.component';
+import { AssetService } from 'src/app/shared/services/asset.service';
 
 @NgModule({
-  declarations: [AssetDefinitionListComponent, AssetComponent],
+  declarations: [
+    AssetDefinitionListComponent,
+    AssetDefinitionComponent,
+    // Other components if any
+  ],
   imports: [
     CommonModule,
     FormsModule,
-    AssetDefinitionRoutingModule
-  ]
+    // Other modules if any
+  ],
+  providers: [AssetService], // Add your services here
+  exports: [
+    AssetDefinitionListComponent,
+    AssetDefinitionComponent,
+    // Other components if any
+  ],
 })
 export class AssetDefinitionModule { }

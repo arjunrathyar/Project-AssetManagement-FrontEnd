@@ -28,7 +28,7 @@ export class AssetDefinitionComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  saveAssetDefinition() {
     const newAsset = {
       assetName: this.assetName,
       assetTypeId: this.assetTypeId,

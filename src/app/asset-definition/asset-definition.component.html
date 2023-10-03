@@ -1,13 +1,16 @@
 <div>
   <h2>Asset Definition Details</h2>
   <label for="assetName">Asset Name:</label>
-  <input type="text" [(ngModel)]="assetDefinition.assetName" name="assetName" required><br>
+  <input type="text" [(ngModel)]="assetName" name="assetName" required><br>
+
+
+
 
   <label for="assetTypeId">Asset Type ID:</label>
-  <input type="number" [(ngModel)]="assetDefinition.assetTypeId" name="assetTypeId" required><br>
+  <input type="number" [(ngModel)]="assetTypeId" name="assetTypeId" required><br>
 
   <label for="assetClassId">Asset Class ID:</label>
-  <input type="number" [(ngModel)]="assetDefinition.assetClassId" name="assetClassId" required><br>
+  <input type="number" [(ngModel)]="assetClassId" name="assetClassId" required><br>
 
   <button (click)="saveAssetDefinition()">Save</button>
 </div>

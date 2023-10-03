@@ -23,9 +23,9 @@ export class AdminHomeComponent {
     if (destination === 'asset-creation') {
       this.router.navigate(['/asset-definition']);
     } else if (destination === 'vendor-creation') {
-      this.router.navigate(['/vendor-list']);
+      this.router.navigate(['/vendor/list']);
     } else if (destination === 'approve-reject') {
-      this.router.navigate(['/purchase-orders']);
+      this.router.navigate(['/purchase/list']);
     }
   }
 }

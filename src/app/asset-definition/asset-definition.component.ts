@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AssetType, AssetClass, AssetDefinition } from '../shared/models/asset-definition.model';
 import { AssetDefinitionService } from '../shared/services/asset-definition.service';
+import { AssetService } from '../shared/services/asset.service';
 
 @Component({
   selector: 'app-asset-definition',
@@ -14,9 +15,12 @@ export class AssetDefinitionComponent implements OnInit {
   isAddingNewAsset: boolean = false;
   newAssetName: string = '';
 
-  constructor(private assetService: AssetDefinitionService) {}
+  constructor(private assetService: AssetDefinitionService,
+    private assetTypeService: AssetService) {}
 
   ngOnInit(): void {
+    this.assetTypeService.getAllAssetType();
+    console.log(this.assetTypeService.asset);
     // Initialize your data or make API calls here
     this.assetService.getAllAssetDefinitions().subscribe(definitions => {
       this.assetDefinitions = definitions;

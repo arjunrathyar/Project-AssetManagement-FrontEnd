@@ -6,6 +6,7 @@ import { SharedComponent } from './shared/shared.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
 import { AssetDefinitionComponent } from './asset-definition/asset-definition.component';
 import { HomeComponent } from './home/home.component';
+import { VendorCreationComponent } from './vendor-creation/vendor-creation.component'
 
 const routes: Routes = [
 
@@ -16,6 +17,10 @@ const routes: Routes = [
 
 
   //lazy loading
+  { path: 'vendor', component: VendorCreationComponent, loadChildren: () => import('./vendor-creation/vendor-creation.module')
+  .then(x => x.VendorCreationModule) },
+  { path: 'purchase', component: PurchaseOrderComponent, loadChildren: () => import('./purchase-order/purchase-order.module')
+  .then(x => x.PurchaseOrderModule) },
 
   {
     path: "asset-definition",

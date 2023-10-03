@@ -1,0 +1,41 @@
+<div class="container">
+    <!--Add Employee-->
+    <div class="header">
+        <a [routerLink]="['/vendor-creation/add']" role="button" class="btn btn-outline-primary custom-margin">
+            <span><i class="fa fa-user-plus fa-lg"></i></span>
+            <br>Add Vendor</a>
+
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vendor Name</th>
+                <th>Type</th>
+                <th>Asset Type</th>
+                <th>Valid From</th>
+                <th>Valid To</th>
+                <th>Address</th>
+                <th>Active</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vendor of vendorCreationService.vendors">
+                <td>{{vendor.vendorId}}</td>
+                <td>{{vendor.vendorName}}</td>
+                <td>{{vendor.vendorType}}</td>
+                <td>{{vendor.assetTypeId}}</td>
+                <td>{{vendor.validFrom | date: "dd-MMM-yyyy"}}</td>
+                <td>{{vendor.validTo | date: "dd-MMM-yyyy"}}</td>
+                <td>{{vendor.address}}</td>
+                <td><input type="checkbox" [checked]="vendor.isActive" disabled></td>
+                <td><button type="button" class="btn btn-sm btn-outline-info"
+                    (click)="updateVendor(vendor)"><i class="fa fa-edit"></i></button>
+                    &nbsp;<button type="button" class="btn btn-sm btn-outline-danger" (click)="disableVendor(vendor.id)"><i class="fa fa-trash"></i></button>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

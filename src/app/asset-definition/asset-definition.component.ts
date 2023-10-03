@@ -11,16 +11,15 @@ import { AssetDefinitionService } from '../shared/services/asset-definition.serv
 export class AssetDefinitionComponent implements OnInit {
   assetDefinitions: AssetDefinition[] = [];
   selectedAssetDefinition: AssetDefinition | null = null;
-  assetName: string = '';
-  assetTypeId: number = 0; // Assuming the default value is 0
-  assetClassId: number = 0; // Assuming the default value is 0
+  isAddingNewAsset: boolean = false;
+  newAssetName: string = '';
 
-  constructor(private assetService: AssetDefinitionService) { }
+  constructor(private assetService: AssetDefinitionService) {}
 
   ngOnInit(): void {
     // Initialize your data or make API calls here
-    this.assetService.getAllAssetDefinitions().subscribe(assetDefs => {
-      this.assetDefinitions = assetDefs;
+    this.assetService.getAllAssetDefinitions().subscribe(definitions => {
+      this.assetDefinitions = definitions;
     });
   }
 
@@ -40,6 +39,7 @@ export class AssetDefinitionComponent implements OnInit {
 
     this.assetService.addAssetDefinition(newAsset).subscribe(response => {
       console.log('Asset added successfully:', response);
+      this.assetDefinitions.push(response); // Add the new asset to the list
       this.isAddingNewAsset = false;
       this.newAssetName = '';
     });
@@ -62,10 +62,11 @@ export class AssetDefinitionComponent implements OnInit {
   deleteAssetDefinition(): void {
     if (this.selectedAssetDefinition) {
       this.assetService.deleteAssetDefinition(this.selectedAssetDefinition.id)
-        .subscribe(response => {
-          console.log('Asset deleted successfully:', response);
+        .subscribe(() => {
+          console.log('Asset deleted successfully');
           this.selectedAssetDefinition = null;
+          this.assetDefinitions = this.assetDefinitions.filter(def => def.id !== this.selectedAssetDefinition?.id);
         });
     }
   }
-}
+}  

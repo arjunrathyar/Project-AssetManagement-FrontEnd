@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    <a [routerLink]="['/employees/add']" role="button" class="btn btn-primary custom-margin">
+    <a [routerLink]="['/purchase-order/add']" role="button" class="btn btn-primary custom-margin">
         <span><i class="fa fa-plus">Add Purchase</i></span>
     </a>
     <br>
@@ -38,27 +38,46 @@
                 <th>
                     Status
                 </th>
+                <!--
+                <th>
+                    Active
+                </th>
+                
+                <th>
+                    Status
+                </th>
+                -->
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employee of employeeService.employees">
-                <td>{{employee.id}}</td>
-                <td>{{employee.employeeName}}</td>
-                <td>{{employee.designation}}</td>
-                <td>{{employee.department.departmentName}}</td>
-                <td>{{employee.dateofjoining | date: "dd-MMM-yyyy"}}</td>
+            
+            <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders">
+                <td>{{purchaseOrder.id}}</td>
+                <td>{{purchaseOrder.assetPurchaseOrderNumber}}</td>
+                <td>{{purchaseOrder.assetTypeId}}</td>
+                <td>{{purchaseOrder.assetDefId}}</td>
+                <td>{{purchaseOrder.assetVendorID}}</td>
+                <td>{{purchaseOrder.assetQuantity}}</td>
+                <td>{{purchaseOrder.assetOrderDate | date: "dd-MMM-yyyy"}}</td>
+                <td>{{purchaseOrder.assetDeliveryDate | date: "dd-MMM-yyyy"}}</td>
+                <td>{{purchaseOrder.assetStatusID}}</td>
+                <!--
                 <td><input type="checkbox" [checked]="employee.active" disabled></td>
                 <td>
                     <button type="button" class="btn btn-sm btn-light" (click)="updateEmployee(employee)">
                         <i class="fa fa-edit">
                         </i>
                     </button>
+                    
                     &nbsp;
                     <button type="button" class="btn btn-sm btn-danger" (click)="deleteEmployee(employee.id)">
                         <i class="fa fa-trash">
                         </i></button>
+                    
                 </td>
+                -->
             </tr>
+            
         </tbody>
     </table>
 </div>

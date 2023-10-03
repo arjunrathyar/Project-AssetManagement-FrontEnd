@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AssetDefinitionComponent } from './asset-definition.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'asset-definition', component: AssetDefinitionComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

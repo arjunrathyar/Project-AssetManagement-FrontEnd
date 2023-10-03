@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AssetDefinitionListComponent } from 'src/app/asset-definition/asset-definition-list/asset-definition-list.component';
 import { AssetDefinitionRoutingModule } from './asset-definition-routing.module';
+import { AssetComponent } from './asset/asset.component';
 
 @NgModule({
-  declarations: [AssetDefinitionListComponent],
+  declarations: [AssetDefinitionListComponent, AssetComponent],
   imports: [
     CommonModule,
     FormsModule,

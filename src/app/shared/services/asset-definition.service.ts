@@ -1,33 +1,50 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AssetDefinition } from '../models/asset-definition.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssetDefinitionService {
+  private apiUrl = 'http://localhost:9091/api/assetdefinitions';
+  private apiUrlForTypes = 'http://localhost:9091/api/assettypes'; // Assuming this is the correct URL
+  private apiUrlForClasses = 'http://localhost:9091/api/assetclasses'; // Assuming this is the correct URL
 
-  private apiUrl = 'http://your-backend-url/api/asset-definitions'; // Replace with your actual backend URL
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getAssetDefinitions(): Observable<AssetDefinition[]> {
-    return this.http.get<AssetDefinition[]>(this.apiUrl);
+  getAllAssetDefinitions(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  createAssetDefinition(assetDefinition: AssetDefinition): Observable<AssetDefinition> {
-    return this.http.post<AssetDefinition>(this.apiUrl, assetDefinition);
+  addAssetDefinition(assetDefinition: any): Observable<any> {
+    return this.http.post(this.apiUrl, assetDefinition);
   }
 
-  updateAssetDefinition(assetDefinition: AssetDefinition): Observable<AssetDefinition> {
-    const url = `${this.apiUrl}/${assetDefinition.id}`;
-    return this.http.put<AssetDefinition>(url, assetDefinition);
-  }
-
-  deleteAssetDefinition(id: number): Observable<void> {
+  getAssetDefinitionById(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<void>(url);
+    return this.http.get<any>(url);
+  }
+
+  updateAssetDefinition(id: number, updatedAssetDefinition: any): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put(url, updatedAssetDefinition);
+  }
+
+  deleteAssetDefinition(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url);
+  }
+
+  createAssetDefinition(newAsset: any): Observable<any> {
+    return this.http.post(this.apiUrl, newAsset);
+  }
+
+  getAssetTypes(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlForTypes);
+  }
+  
+  getAssetClasses(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlForClasses);
   }
 }
 

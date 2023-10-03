@@ -1,26 +1,13 @@
-<div class="container">
-    <h2>Asset Definition</h2>
-  
-    <form>
-      <div class="form-group">
-        <label for="assetName">Asset Name</label>
-        <input type="text" class="form-control" id="assetName" [(ngModel)]="assetName" name="assetName" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="assetType">Asset Type</label>
-        <select class="form-control" id="assetType" [(ngModel)]="assetType" name="assetType" required>
-          <option value="type1">Type 1</option>
-          <option value="type2">Type 2</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" [(ngModel)]="description" name="description" required></textarea>
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  
+<div>
+  <h2>Asset Definition Details</h2>
+  <label for="assetName">Asset Name:</label>
+  <input type="text" [(ngModel)]="assetDefinition.assetName" name="assetName" required><br>
+
+  <label for="assetTypeId">Asset Type ID:</label>
+  <input type="number" [(ngModel)]="assetDefinition.assetTypeId" name="assetTypeId" required><br>
+
+  <label for="assetClassId">Asset Class ID:</label>
+  <input type="number" [(ngModel)]="assetDefinition.assetClassId" name="assetClassId" required><br>
+
+  <button (click)="saveAssetDefinition()">Save</button>
+</div>

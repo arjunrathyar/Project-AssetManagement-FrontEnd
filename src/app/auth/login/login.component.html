@@ -1,42 +1,52 @@
-<div class="container justify-content-around loginstyle">
+<div class="container">
     <div>
-        <h4 class="text-center">
-            Enter Credentials
-        </h4>
+        <h1>Login</h1>
         <hr>
-        <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
-            <!--User Name-->
+        <form [formGroup]="loginForm" (ngSubmit) = "loginCredentials()">
+            <!--Username-->
             <div class="form-group">
-                <input type="text" placeholder="Enter User Name" formControlName="userName" class="form-control">
+                <input type="text" placeholder="Enter UserName"
+                formControlName = "userName"
+                class ="form-control"/>
             </div>
-            <!--Validation Message-->
-            <div class="validation-error" *ngIf="isSubmitted && formControls.userName.errors">
-                <div *ngIf="formControls.userName.errors.required">  
-                    Username is invalid or required!!!
+
+            <!--validation Message-->
+            <div *ngIf="isSubmitted && formControls.userName.errors">
+                <div *ngIf="formControls.userName.errors.required">
+                    User Name is Invalid or Required
                 </div>
             </div>
+
             <br>
-            <!--Password-->
-            <div class="form-group">
-                <input type="password" placeholder="Enter User Password" formControlName="password" class="form-control">
+
+
+             <!--Password-->
+             <div class="form-group">
+                <input type="password" placeholder="Enter password"
+                formControlName = "password"
+                class ="form-control"/>
             </div>
-            <!--Validation Message-->
-            <div class="validation-error" *ngIf="isSubmitted && formControls.password.errors">
-                <div *ngIf="formControls.password.errors.required">  
-                    Pasword is invalid or required!!!
+
+            <div *ngIf="isSubmitted && formControls.password.errors">
+                <div *ngIf="formControls.password.errors.required">
+                    Password is Invalid or Required
                 </div>
             </div>
+
             <br>
-            <!--Submit button-->
+
+
+            <!--Submit Button-->
             <div>
-                <button type="submit" class="btn btn-lg btn-primary btn-dark form-control">
-                    Log In
+                <button type="submit"
+                class="btn btn-lg btn-primary form-control">
+                Submit
                 </button>
             </div>
-            <div *ngIf="error" class="validation-error">
+
+            <div class="validation-error" *ngIf="error">
                 {{error}}
             </div>
         </form>
     </div>
-
 </div>

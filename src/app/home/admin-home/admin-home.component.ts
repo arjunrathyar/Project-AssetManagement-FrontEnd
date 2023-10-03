@@ -15,17 +15,17 @@ export class AdminHomeComponent {
   logout(): void {
     // Clear any authentication tokens, etc. (if applicable)
     // Then navigate to the login page
-    this.router.navigate(['/login']);
+    this.router.navigate(['auth/login']);
   }
 
   // Function to navigate based on the button clicked
   navigateTo(destination: string): void {
     if (destination === 'asset-creation') {
-      this.router.navigate(['/asset-creation']);
-    } else if (destination === 'vendor-creation') {
-      this.router.navigate(['/vendor-creation']);
-    } else if (destination === 'asset-definition') {
       this.router.navigate(['/asset-definition']);
+    } else if (destination === 'vendor-creation') {
+      this.router.navigate(['/vendor-list']);
+    } else if (destination === 'approve-reject') {
+      this.router.navigate(['/purchase-orders']);
     }
   }
 }

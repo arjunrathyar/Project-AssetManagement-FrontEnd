@@ -19,7 +19,7 @@ import { AssetDefinitionModule } from './asset-definition/asset-definition.modul
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AssetDefinitionModule // Include the module
+    AssetDefinitionModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

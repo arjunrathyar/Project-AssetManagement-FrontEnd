@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Asset Definitions</h2>
+  
+    <ul>
+      <li *ngFor="let asset of assetDefinitions">
+        {{ asset.id }} - {{ asset.assetName }} - {{ asset.assetType.name }} - {{ asset.assetClass.name }}
+      </li>
+    </ul>
+  </div>
+  

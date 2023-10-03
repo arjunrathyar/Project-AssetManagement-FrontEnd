@@ -25,6 +25,7 @@ const routes: Routes = [
     component: AssetMasterComponent,
     loadChildren: () => import('./asset-master/asset-master.module').then(x => x.AssetMasterModule)
   },
+
   {
     path: "purchase-order",
     component: PurchaseOrderComponent,

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container justify-content-around loginstyle">
     <div>
-        <h1>
-            Enter your credentials
-        </h1>
+        <h4 class="text-center">
+            Enter Credentials
+        </h4>
         <hr>
         <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
             <!--User Name-->
@@ -30,7 +30,7 @@
             <!--Submit button-->
             <div>
                 <button type="submit" class="btn btn-lg btn-primary btn-dark form-control">
-                    Submit
+                    Log In
                 </button>
             </div>
             <div *ngIf="error" class="validation-error">

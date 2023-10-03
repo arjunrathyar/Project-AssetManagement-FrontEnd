@@ -57,11 +57,11 @@ export class LoginComponent implements OnInit {
       this.authService.loginVerify(this.loginForm.value).subscribe(response => {
         console.log(response);
 
-        /*
-        if (response.data.role==1) {
-          this.router.navigate(['/employees/list'])
+        
+        if (response.status==200) {
+          this.router.navigate(['/purchase-order'])
         }
-        */
+        
         
         if(response==null){
           this.error = "Invalid Username and Password";

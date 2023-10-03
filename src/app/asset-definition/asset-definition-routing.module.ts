@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AssetDefinitionComponent } from './asset-definition.component';
+import { AssetDefinitionListComponent } from './asset-definition-list/asset-definition-list.component';
 
 const routes: Routes = [
-  { path: 'asset-definition', component: AssetDefinitionComponent }
+  //{ path: 'asset-definition', component: AssetDefinitionComponent }
+  { path: 'list', component: AssetDefinitionListComponent }
 ];
 
 @NgModule({

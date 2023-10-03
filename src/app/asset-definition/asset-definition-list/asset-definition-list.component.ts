@@ -5,60 +5,49 @@ import { AssetDefinition } from 'src/app/shared/models/asset-definition.model'; 
 
 @Component({
   selector: 'app-asset-definition-list',
-  templateUrl: './asset-definition-list.component.html'
+  templateUrl: './asset-definition-list.component.html',
+  styleUrls: ['./asset-definition-list.component.scss']
 })
-
 export class AssetDefinitionListComponent implements OnInit {
-  assetDefinitions: AssetDefinition[] = [];
-  selectedAssetDefinition: AssetDefinition | null = null;
 
-  constructor(private assetDefinitionService: AssetDefinitionService) {}
+  assetDefinitions: AssetDefinition[];
+  selectedAssetDefinition: AssetDefinition;
 
-  ngOnInit() {
+  constructor(private assetService: AssetDefinitionService) { }
+
+  ngOnInit(): void {
     this.loadAssetDefinitions();
   }
 
   loadAssetDefinitions() {
-    this.assetDefinitionService.getAllAssetDefinitions()
-      .subscribe(
-        assetDefs => {
-          this.assetDefinitions = assetDefs;
-        },
-        error => {
-          console.error('Error fetching asset definitions:', error);
-        }
-      );
+    this.assetService.getAllAssetDefinitions().subscribe(definitions => {
+      this.assetDefinitions = definitions;
+    });
   }
 
-  editAssetDefinition(assetDefinition: AssetDefinition) {
-    this.selectedAssetDefinition = { ...assetDefinition }; // Create a copy to avoid changing the original object directly
+  editAssetDefinition(assetDefinition) {
+    this.selectedAssetDefinition = { ...assetDefinition }; // Copy the selected asset for editing
   }
 
   updateAssetDefinition() {
-    if (this.selectedAssetDefinition) {
-      this.assetDefinitionService.updateAssetDefinition(this.selectedAssetDefinition.id, this.selectedAssetDefinition)
-        .subscribe(
-          () => {
-            this.loadAssetDefinitions();
-            this.selectedAssetDefinition = null; // Reset selectedAssetDefinition after successful update
-          },
-          error => {
-            console.error('Error updating asset definition:', error);
-          }
-        );
-    }
+    // Use this.selectedAssetDefinition to send an update request to your API
+    this.assetService.updateAssetDefinition(this.selectedAssetDefinition.id, this.selectedAssetDefinition)
+      .subscribe(response => {
+        // Handle response if needed
+        this.selectedAssetDefinition = null; // Clear selected asset after update
+        this.loadAssetDefinitions(); // Reload the list
+      });
   }
 
-  deleteAssetDefinition(id: number) {
-    this.assetDefinitionService.deleteAssetDefinition(id)
-      .subscribe(
-        () => {
-          this.loadAssetDefinitions();
-        },
-        error => {
-          console.error('Error deleting asset definition:', error);
+  deleteAssetDefinition(assetDefinition) {
+    // Send a request to delete the assetDefinition from your API
+    this.assetService.deleteAssetDefinition(assetDefinition.id)
+      .subscribe(response => {
+        // Handle response if needed
+        const index = this.assetDefinitions.indexOf(assetDefinition);
+        if (index !== -1) {
+          this.assetDefinitions.splice(index, 1);
         }
-      );
+      });
   }
 }
-

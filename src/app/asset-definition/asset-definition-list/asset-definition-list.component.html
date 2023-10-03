@@ -1,11 +1,16 @@
+<!-- Iterate through each assetDefinition -->
 <div *ngFor="let assetDefinition of assetDefinitions">
   {{ assetDefinition.assetName }}
   <button (click)="editAssetDefinition(assetDefinition)">Edit</button>
+  <button (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
 </div>
+
+<!-- Display selectedAssetDefinition if it exists -->
 <div *ngIf="selectedAssetDefinition">
   <h2>Edit Asset Definition</h2>
   <form (submit)="updateAssetDefinition()">
     <label for="assetName">Asset Name:</label>
+    <!-- Use ngModel to bind the input to selectedAssetDefinition.assetName -->
     <input type="text" [(ngModel)]="selectedAssetDefinition.assetName" name="assetName" required><br>
 
     <!-- Add other fields here if needed -->

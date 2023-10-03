@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { AuthComponent } from './auth/auth.component';
 import { SharedComponent } from './shared/shared.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
+import { AssetDefinitionComponent } from './asset-definition/asset-definition.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,12 @@ const routes: Routes = [
   },
 
   //lazy loading
+
+  {
+    path: "asset-definition",
+    component: AssetDefinitionComponent,
+    loadChildren: () => import('./asset-definition/asset-definition.module').then(x => x.AssetDefinitionModule)
+  },
 
   {
     path: "purchase-order",

@@ -9,68 +9,106 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   //declare variables
-  loginForm!: FormGroup;   //exclamation means that empty fields could be accomodated...
-  isSubmitted: boolean = false;
+  loginForm!: FormGroup;
+  isSubmitted = false;
   error: string = '';
 
   loginUser?: User = new User();
+
+
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router) { }
 
+
+  //life cycle Hook
   ngOnInit(): void {
 
     // create a reactive form
     this.loginForm = this.formBuilder.group({
+
       userName: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
 
-  //get controls for validation
+  // control for validation
   get formControls() {
     return this.loginForm.controls;
   }
 
-  //funtionality
-  loginCredentials():void{
+  //functionality
+
+  loginCredentials(): void {
 
     //setting value to issubmitted
-    this.isSubmitted=true;
+    this.isSubmitted = true;
 
-    //checking form is valid
-    if (this.loginForm.invalid){
-      this.error="Please Enter UserName And Password";
+    //ckecking form is valid
+    if (this.loginForm.invalid) {
+      this.error = "Please enter Username and Password"
       return;
     }
 
     //form is valid
-    if (this.loginForm.valid){
-      this.error="";
+    if (this.loginForm.valid) {
+      this.error = "";
       console.log(this.loginForm.value);
-      
-      //call service for login i.e., checkin login functionality
-      this.authService.loginVerify(this.loginForm.value).subscribe(response => {
-        console.log(response);
-
-        
-        if (response.status==200) {
-          this.router.navigate(['/purchase-order'])
-        }
-        
-        
-        if(response==null){
-          this.error = "Invalid Username and Password";
-        }
-        
-      })
-
-
     }
+
+    //call service for login
+    this.authService.loginVerify(this.loginForm.value)
+      .subscribe(Response => {
+        console.log(Response);
+
+        if (Response == null) {
+          this.error = "Invalid Username and Password";
+        }else {
+          //session storage
+        sessionStorage.setItem("USER_NAME",Response.data.UserName);
+        sessionStorage.setItem("ROLE_ID",Response.data.role);
+
+
+        //local storage
+        localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
+
+        console.log(sessionStorage.getItem("USER_NAME"));
+          //redirect to the repective page
+          this.router.navigate(['/auth/login']);
+        }
+
+
+        // based on role ID -- authrntication
+
+        if(Response.data.role===1){
+          console.log("admin");
+
+          localStorage.setItem("USER_NAME",Response.data.UserName);
+          localStorage.setItem("ROLE_ID",Response.data.role);
+          localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
+
+          this.router.navigate(['/asset-definition/auth/login']);
+        }
+        else if (Response.data.role==2) {
+          console.log("manager");
+
+          localStorage.setItem("USER_NAME",Response.data.UserName);
+          localStorage.setItem("ROLE_ID",Response.data.role);
+          localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
+
+          this.router.navigate(['auth/login']);
+        }
+        else {
+          this.error = " Sorry ! invalid credentials not allowes to this system"
+        }
+  
+      })
   }
 
 }
+

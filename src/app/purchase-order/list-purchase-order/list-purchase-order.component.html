@@ -1,1 +1,83 @@
-<p>list-purchase-order works!</p>
+<div class="container">
+    <br>
+    <a [routerLink]="['/purchase-order/add']" role="button" class="btn btn-primary custom-margin">
+        <span><i class="fa fa-plus">Add Purchase</i></span>
+    </a>
+    <br>
+    <br>
+</div>
+
+<div class="container">
+    <table class="table table-dark text-center">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Order Number
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Definition
+                </th>
+                <th>
+                    Vendor
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Date of Purchase
+                </th>
+                <th>
+                    Date Of Delivery
+                </th>
+                <th>
+                    Status
+                </th>
+                <!--
+                <th>
+                    Active
+                </th>
+                
+                <th>
+                    Status
+                </th>
+                -->
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders">
+                <td>{{purchaseOrder.id}}</td>
+                <td>{{purchaseOrder.assetPurchaseOrderNumber}}</td>
+                <td>{{purchaseOrder.assetTypeId}}</td>
+                <td>{{purchaseOrder.assetDefId}}</td>
+                <td>{{purchaseOrder.assetVendorID}}</td>
+                <td>{{purchaseOrder.assetQuantity}}</td>
+                <td>{{purchaseOrder.assetOrderDate | date: "dd-MMM-yyyy"}}</td>
+                <td>{{purchaseOrder.assetDeliveryDate | date: "dd-MMM-yyyy"}}</td>
+                <td>{{purchaseOrder.assetStatusID}}</td>
+                <!--
+                <td><input type="checkbox" [checked]="employee.active" disabled></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-light" (click)="updateEmployee(employee)">
+                        <i class="fa fa-edit">
+                        </i>
+                    </button>
+                    
+                    &nbsp;
+                    <button type="button" class="btn btn-sm btn-danger" (click)="deleteEmployee(employee.id)">
+                        <i class="fa fa-trash">
+                        </i></button>
+                    
+                </td>
+                -->
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

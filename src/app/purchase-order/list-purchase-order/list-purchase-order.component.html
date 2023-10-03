@@ -54,9 +54,9 @@
             <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders">
                 <td>{{purchaseOrder.id}}</td>
                 <td>{{purchaseOrder.assetPurchaseOrderNumber}}</td>
-                <td>{{purchaseOrder.assetTypeId}}</td>
-                <td>{{purchaseOrder.assetDefId}}</td>
-                <td>{{purchaseOrder.assetVendorID}}</td>
+                <td>{{purchaseOrder.assetType.assetType}}</td>
+                <td>{{purchaseOrder.assetDefinition.assetName}}</td>
+                <td>{{purchaseOrder.vendor.vendorName}}</td>
                 <td>{{purchaseOrder.assetQuantity}}</td>
                 <td>{{purchaseOrder.assetOrderDate | date: "dd-MMM-yyyy"}}</td>
                 <td>{{purchaseOrder.assetDeliveryDate | date: "dd-MMM-yyyy"}}</td>

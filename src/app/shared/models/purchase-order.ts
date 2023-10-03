@@ -1,5 +1,7 @@
-import { AssetDefinition, AssetType } from "./asset-definition.model";
+import { AssetDefinition } from "./asset-definition.model";
+import { AssetType } from "./asset-type.model";
 import { PurchaseStatus } from "./purchase-status";
+import { Vendor } from "./vendor";
 
 export class PurchaseOrder {
 
@@ -11,7 +13,7 @@ export class PurchaseOrder {
     assetType: AssetType;
     assetQuantity: number = 0;
     assetVendorID: number = 0;
-    //vendor: Vendor;
+    vendor: Vendor;
     assetOrderDate: Date;
     assetDeliveryDate: Date;
     assetStatusID: number;

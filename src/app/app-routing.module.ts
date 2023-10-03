@@ -14,6 +14,7 @@ const routes: Routes = [
     path:'',redirectTo:'auth/login', pathMatch: 'full'
   },
 
+
   //lazy loading
 
   {

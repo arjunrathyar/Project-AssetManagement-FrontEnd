@@ -10,6 +10,11 @@ import { VendorCreationService } from 'src/app/shared/services/vendor-creation.s
 })
 export class VendorListComponent implements OnInit {
 
+  //declare variable
+  searchTerm ='';
+  page: number=1;
+  pageSize=5;
+
   constructor(public vendorCreationService: VendorCreationService,
     private router: Router) { }
 
@@ -19,9 +24,9 @@ export class VendorListComponent implements OnInit {
   //Update
   updateVendor(vendor: Vendor) {
     console.log(vendor);
-    //this.populateEmployeeData(employee);
-    this.router.navigate(['vendors/edit', vendor.id])
-    //Localhost:4200/employees/edit/id   
+    this.populateVendorData(vendor);
+    this.router.navigate(['vendor-creation/edit', vendor.id])
+    //Localhost:4200/vendors/edit/id   
   }
   //Disable
   disableVendor(_id: number){
@@ -45,7 +50,7 @@ export class VendorListComponent implements OnInit {
   }
   //Getting a vendor data
 
-  populateEmployeeData(vendor: Vendor) {
+  populateVendorData(vendor: Vendor) {
     this.vendorCreationService.formVendorData = Object.assign({}, vendor)
 
   }

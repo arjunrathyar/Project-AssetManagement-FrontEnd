@@ -30,9 +30,11 @@
                 <th>
                     Order Number
                 </th>
+                <!-- 
                 <th>
                     Type
                 </th>
+                 -->
                 <th>
                     Definition
                 </th>
@@ -67,7 +69,7 @@
             <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders">
                 <td>{{purchaseOrder.id}}</td>
                 <td>{{purchaseOrder.assetPurchaseOrderNumber}}</td>
-                <td>{{purchaseOrder.assetType.assetType}}</td>
+                <!-- <td>{{purchaseOrder.assetType.assetType}}</td> -->
                 <td>{{purchaseOrder.assetDefinition.assetName}}</td>
                 <td>{{purchaseOrder.vendor.vendorName}}</td>
                 <td>{{purchaseOrder.assetQuantity}}</td>

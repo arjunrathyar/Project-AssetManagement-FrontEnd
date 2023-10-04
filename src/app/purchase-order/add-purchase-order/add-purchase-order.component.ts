@@ -14,6 +14,7 @@ export class AddPurchaseOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.purchaseOrderService.getAllVendors();
+    this.purchaseOrderService.getAllAssetDefinitions();
   }
 
   addPurchaseOrder(form: NgForm){

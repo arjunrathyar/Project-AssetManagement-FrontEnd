@@ -8,6 +8,7 @@
             <h5 class="card-title">{{ assetDefinition.assetName }}</h5>
             <p>Asset Type: {{ assetDefinition.assetType.name }}</p> <!-- Display Asset Type -->
             <button class="btn btn-primary" (click)="editAssetDefinition(assetDefinition)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
           </div>
         </div>
       </div>
@@ -24,31 +25,13 @@
 
           <!-- Display Asset Type -->
           <div class="mb-3">
-            <label for="assetType" class="form-label">Asset Type:</label>
+            <label fo r="assetType" class="form-label">Asset Type:</label>
             <input type="text" [(ngModel)]="selectedAssetDefinition.assetType.name" name="assetType" class="form-control" readonly>
           </div>
 
           <!-- Add other fields here if needed -->
 
           <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-
-        <h2>Delete Asset Definition</h2>
-        <form (submit)="deleteAssetDefinition()">
-          <div class="mb-3">
-            <label for="assetName" class="form-label">Asset Name:</label>
-            <input type="text" [(ngModel)]="selectedAssetDefinition.assetName" name="assetName" class="form-control" required>
-          </div>
-
-          <!-- Display Asset Type -->
-          <div class="mb-3">
-            <label for="assetType" class="form-label">Asset Type:</label>
-            <input type="text" [(ngModel)]="selectedAssetDefinition.assetType.name" name="assetType" class="form-control" readonly>
-          </div>
-
-          <!-- Add other fields here if needed -->
-
-          <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </div>
 
@@ -65,7 +48,7 @@
           <select name="assetClassId" id="assetClassId" #assetClassId="ngModel"
           [(ngModel)]="newAssetTypeId" name="newAssetType" class="form-control" required>
             <option value="0" selected disabled>===========SELECT ASSET TYPE===========</option>
-            <option *ngFor="let assettype of assetDefinitions" value="{{assettype.id}}">{{ assettype.assetType.assetType}}</option>
+            <option *ngFor="let assettype of assetDefinitions" value="{{assetype.id}}">{{ assettype.assetType.assetType}}</option>
           </select>
         </div>
 

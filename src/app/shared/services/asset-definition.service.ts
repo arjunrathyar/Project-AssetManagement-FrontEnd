@@ -23,6 +23,7 @@ export class AssetDefinitionService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<AssetDefinition>(url);
   }
+  
 
   addAssetDefinition(assetDefinition: AssetDefinition): Observable<AssetDefinition> {
     return this.http.post<AssetDefinition>(this.apiUrl, assetDefinition);

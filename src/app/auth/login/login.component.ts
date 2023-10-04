@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
     //checking form is valid
     if (this.loginForm.invalid) {
-      this.error = "Please Enter UserName And Password";
+      this.error = "Please Check Your UserName And Password !!";
       return;
     }
 
@@ -85,11 +85,11 @@ export class LoginComponent implements OnInit {
         }
         
         else {
-          this.error = "Sorry invalid credentials not allowd to enter the system";  
+          this.error = "Sorry invalid credentials!! You are not allowed to enter the system..";  
         }
       },
       (error)=>{
-        this.error = "invalid credentials";
+        this.error = "Invalid Credentials";
       });
     }
   }

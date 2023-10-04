@@ -1,9 +1,9 @@
-<div>
-    <app-navbar></app-navbar>
 
+<div class="container justify-content-center align-items-center vh-100">
+    <app-navbar></app-navbar>
     <div class="jumbotron jumbotronClass">
         <h1 class="display-4 jumboTexts">
-            Welcome
+            WELCOME
         </h1>
         <p class="jumboSubTexts">
             Please Select Your Desired Option!!
@@ -11,39 +11,35 @@
         <hr>
     </div>
 
-    <div class="cardStyle">
-        <div class="card text-white bg-primary mb-3 text-center">
-            <div class="card-body">
-                <a [routerLink]="['/asset-definition/list']">
-                    <h5 class="card-title ">Asset Creation</h5>
-                </a>
-                <p class="card-text">Create, Edit & Delete the Assets of Your Choice!</p>
+    <div class="row justify-content-center"> 
+        <div class="cardStyle">
+            <div class="card text-white bg-primary mb-3 text-center">
+                <div class="card-body">
+                    <a [routerLink]="['/asset-definition/list']">
+                        <h5 class="card-title ">Asset Creation</h5>
+                    </a>
+                    <p class="card-text">Create, Edit & Delete the Assets of Your Choice!</p>
+                </div>
             </div>
-        </div>
-
-        <div class="card text-white bg-primary mb-3 text-center">
-            <div class="card-body">
-                <a [routerLink]="['/vendor/list']">
-                    <h5 class="card-title">Vendor Creation</h5>
-                </a>
-                <p class="card-text">Check Available Vendors & Change Based on Needs!</p>
+    
+            <div class="card text-white bg-primary mb-3 text-center">
+                <div class="card-body">
+                    <a [routerLink]="['/vendor/list']">
+                        <h5 class="card-title">Vendor Creation</h5>
+                    </a>
+                    <p class="card-text">Check Available Vendors & Change Based on Needs!</p>
+                </div>
             </div>
-        </div>
-
-        <div class="card text-white bg-primary mb-3 text-center">
-            <div class="card-body">
-                <a [routerLink]="['/employees/add']">
-                    <h5 class="card-title">Purchase Order Action</h5>
-                </a>
-                <p class="card-text">Approve/Reject Your Pennding Purchase Orders!</p>
+    
+            <div class="card text-white bg-primary mb-3 text-center">
+                <div class="card-body">
+                    <a [routerLink]="['/employees/add']">
+                        <h5 class="card-title">Purchase Order Action</h5>
+                    </a>
+                    <p class="card-text">Approve/Reject Your Pennding Purchase Orders!</p>
+                </div>
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
 </div>

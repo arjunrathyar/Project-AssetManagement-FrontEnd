@@ -4,8 +4,10 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { AuthComponent } from './auth/auth.component';
 import { SharedComponent } from './shared/shared.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
+import { AssetDefinitionComponent } from './asset-definition/asset-definition.component';
+import { HomeComponent } from './home/home.component';
+import { VendorCreationComponent } from './vendor-creation/vendor-creation.component';
 import { AssetMasterComponent } from './asset-master/asset-master.component';
-import {AssetDefinitionComponent } from './asset-definition/asset-definition.component';
 
 const routes: Routes = [
 
@@ -14,10 +16,16 @@ const routes: Routes = [
     path:'',redirectTo:'auth/login', pathMatch: 'full'
   },
 
+
   //lazy loading
+  { path: 'vendor', component: VendorCreationComponent, loadChildren: () => import('./vendor-creation/vendor-creation.module')
+  .then(x => x.VendorCreationModule) },
+  { path: 'purchase', component: PurchaseOrderComponent, loadChildren: () => import('./purchase-order/purchase-order.module')
+  .then(x => x.PurchaseOrderModule) },
+
   {
-    path:"asset-definition",
-    component:AssetDefinitionComponent,
+    path: "asset-definition",
+    component: AssetDefinitionComponent,
     loadChildren: () => import('./asset-definition/asset-definition.module').then(x => x.AssetDefinitionModule)
   },
   {
@@ -31,6 +39,11 @@ const routes: Routes = [
     component: PurchaseOrderComponent,
     loadChildren: () => import('./purchase-order/purchase-order.module').then(x => x.PurchaseOrderModule)
   },
+  {
+    path: "vendor-creation",
+    component: VendorCreationComponent,
+    loadChildren: () => import('./vendor-creation/vendor-creation.module').then(x => x.VendorCreationModule)
+  },
 
   {
     path: "shared",
@@ -42,6 +55,11 @@ const routes: Routes = [
     path: "auth",
     component: AuthComponent,
     loadChildren: () => import('./auth/auth.module').then(x => x.AuthModule)
+  },
+  {
+    path: "home",
+    component: HomeComponent,
+    loadChildren: () => import('./home/home.module').then(x => x.HomeModule)
   },
 
   //Wild card routes

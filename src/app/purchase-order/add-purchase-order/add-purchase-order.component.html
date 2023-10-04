@@ -40,16 +40,18 @@
             </select>
         </div>
 
+
+        <!--
         <div class="form-group">
             <label>Asset Type</label>
             <select name="assetTypeId" id="assetTypeId" #assetTypeId="ngModel"
                 [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetTypeId" class="form-control text-center" required>
                 <option value="0" selected disabled>===========SELECT===========</option>
-                <!--<option *ngFor="let dept of employeeService.departments" value="{{dept.departmentId}}">
-                    {{dept.departmentName}}</option>-->
+                <option *ngFor="let type of purchaseOrderService.types" value="{{type.id}}">
+                    {{type.assetType}}</option>
             </select>
         </div>
-
+        -->
 
         <div class="form-group">
             <label>Quantity</label>

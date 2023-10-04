@@ -90,4 +90,19 @@ export class PurchaseOrderService {
   }
 
 
+  //get assettypes
+  getAllAssetTypes(): void {
+    this.httpClient.get(environment.apiUrl + "/api/assettype")
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.types = response as AssetType[];   //storing in array
+      },
+        error => {
+          console.log('Error');
+        }
+      );
+  }
+
+
 }

@@ -27,7 +27,8 @@
         <div class="form-group">
             <label>Vendor Name</label>
             <select name="assetVendorID" id="assetVendorID" #assetVendorID="ngModel"
-                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetVendorID" class="form-control text-center" required>
+                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetVendorID" class="form-control text-center"
+                required>
                 <option value="0" selected disabled>===========SELECT===========</option>
                 <option *ngFor="let vendor of purchaseOrderService.vendors" value="{{vendor.id}}">
                     {{vendor.vendorName}}</option>
@@ -37,7 +38,8 @@
         <div class="form-group">
             <label>Asset Definition</label>
             <select name="assetDefId" id="assetDefId" #assetDefId="ngModel"
-                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetDefId" class="form-control text-center" required>
+                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetDefId" class="form-control text-center"
+                required>
                 <option value="0" selected disabled>===========SELECT===========</option>
                 <option *ngFor="let definition of purchaseOrderService.definitions" value="{{definition.id}}">
                     {{definition.assetName}}</option>
@@ -59,13 +61,9 @@
 
         <div class="form-group">
             <label>Quantity</label>
-            
+
         </div>
 
-        
-
-
-        
 
         <!--Submit-->
         <div class="form-group">

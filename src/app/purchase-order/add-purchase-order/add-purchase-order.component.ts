@@ -15,7 +15,7 @@ export class AddPurchaseOrderComponent implements OnInit {
   ngOnInit(): void {
     this.purchaseOrderService.getAllVendors();
     this.purchaseOrderService.getAllAssetDefinitions();
-    this.purchaseOrderService.getAllAssetTypes();
+    //this.purchaseOrderService.getAllAssetTypes();
   }
 
   addPurchaseOrder(form: NgForm){
@@ -31,7 +31,7 @@ export class AddPurchaseOrderComponent implements OnInit {
   //submit form
 
   onSubmit(form:NgForm){
-    form.value.assetTypeId=1;
+    //form.value.assetTypeId=1;
     form.value.assetQuantity=1;
 
     form.value.assetPurchaseOrderNumber=Math.floor(Math.random()*90000) + 10000;

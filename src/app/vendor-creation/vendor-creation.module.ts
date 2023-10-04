@@ -7,6 +7,8 @@ import { VendorAddComponent } from './vendor-add/vendor-add.component';
 import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { FormsModule } from '@angular/forms';
 import { VendorEditComponent } from './vendor-edit/vendor-edit.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { VendorEditComponent } from './vendor-edit/vendor-edit.component';
   imports: [
     CommonModule,
     VendorCreationRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ]
 })
 export class VendorCreationModule { }

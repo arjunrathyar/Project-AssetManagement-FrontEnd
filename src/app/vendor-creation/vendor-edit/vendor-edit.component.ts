@@ -17,7 +17,7 @@ export class VendorEditComponent implements OnInit {
   }
   //Update
   editVendor(form?: NgForm) {
-    console.log("Inserting..");
+    console.log("editing..");
     this.vendorCreationService.updateVendor(form.value).subscribe(
       (response) => {
         console.log(response);
@@ -33,10 +33,10 @@ export class VendorEditComponent implements OnInit {
   //Submit form
   onSubmit(form: NgForm) {
     console.log(form.value);
-    //Insert
+    //update
     this.editVendor(form);
     form.resetForm();
-    this.router.navigateByUrl("/vendors/list");
+    this.router.navigate(["vendor-creation/list"]);
   }
 
 }

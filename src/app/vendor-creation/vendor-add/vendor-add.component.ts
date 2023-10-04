@@ -14,12 +14,15 @@ export class VendorAddComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    //get all departments
+    //get all Assets
     this.vendorCreationService.getAllAssets();
   }
   //Insert
   addVendor(form: NgForm) {
     console.log("Inserting..");
+    console.log(form.value.vendorName);
+    console.log(form.value.id);
+    
     this.vendorCreationService.insertVendor(form.value).subscribe(
       (response) => {
         console.log(response);
@@ -38,7 +41,7 @@ export class VendorAddComponent implements OnInit {
     //Insert
     this.addVendor(form);
     form.resetForm();
-    this.router.navigateByUrl("/vendors/list");
+    this.router.navigate(["vendor-creation/list"]);
   }
 
 }

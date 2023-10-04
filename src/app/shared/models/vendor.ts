@@ -6,7 +6,7 @@ export class Vendor {
     validFrom: Date = new Date;
     validTo: Date = new Date;
     address:string='';
-    isActive: boolean=false;
+    active: boolean=false;
     assetTypeId: number=0;
 
     //Object Oriented Model

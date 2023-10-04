@@ -32,7 +32,7 @@ export class AddPurchaseOrderComponent implements OnInit {
 
   onSubmit(form:NgForm){
     //form.value.assetTypeId=1;
-    form.value.assetQuantity=1;
+    //form.value.assetQuantity=1;
 
     form.value.assetPurchaseOrderNumber=Math.floor(Math.random()*90000) + 10000;
     form.value.assetOrderDate=new Date().toJSON().slice(0,10).split('-').join('-');

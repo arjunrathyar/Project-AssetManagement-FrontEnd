@@ -6,12 +6,15 @@ import { PurchaseOrderComponent } from './purchase-order.component';
 import { AddPurchaseOrderComponent } from './add-purchase-order/add-purchase-order.component';
 import { EditPurchaseOrderComponent } from './edit-purchase-order/edit-purchase-order.component';
 import { ListPurchaseOrderComponent } from './list-purchase-order/list-purchase-order.component';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [PurchaseOrderComponent, AddPurchaseOrderComponent, EditPurchaseOrderComponent, ListPurchaseOrderComponent],
+  declarations: [PurchaseOrderComponent, AddPurchaseOrderComponent, EditPurchaseOrderComponent, ListPurchaseOrderComponent, HomeComponent],
   imports: [
     CommonModule,
+    FormsModule,
     PurchaseOrderRoutingModule
   ]
 })

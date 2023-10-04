@@ -4,7 +4,7 @@ import { PurchaseStatus } from "./purchase-status";
 import { Vendor } from "./vendor";
 
 export class PurchaseOrder {
-
+ 
     id : number = 0;
     assetPurchaseOrderNumber : number = 0;
     assetDefId: number = 0;

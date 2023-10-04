@@ -14,6 +14,7 @@ export class AssetAddComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
+    this.assetMasterService.getAllAssetDef()
   }
  //insert
  addAsset(form: NgForm) {

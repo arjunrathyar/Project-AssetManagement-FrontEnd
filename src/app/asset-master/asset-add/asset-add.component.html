@@ -47,7 +47,7 @@
 
         <!--Year Of Manufacture-->
         <div class="form-group">
-            <label>Serial No</label>
+            <label>Year of Manufacture</label>
             <input type="text" name="yearOfManufacture" #yearOfManufacture="ngModel"
                 [(ngModel)]="assetMasterService.formAssetMasterData.model" class="form-control" required
                 [ngClass]="{'is-invalid':yearOfManufacture.touched && yearOfManufacture.invalid}" />
@@ -123,26 +123,44 @@
                     </div>
                 </div>
             </div>
-            <!--
+           <!--Asset Type-->
         <div class="form-group">
-            <label for="">Department</label>
-            <select name="departmentid" id="departmentid" #departmentid="ngModel"
-                [(ngModel)]="AssetMasterService.formEmployeeData.departmentid" class="form-control" required>
-            <option value=0 selected disabled>---select Department---</option>
-            <option *ngFor="let dept of employeeService.departments" value="{{dept.departmentId}}">
-                {{dept.departmentName}}
+            <label for="">Asset Type</label>
+            <select name="assetTypeId" id="assetTypeId" #assetTypeId="ngModel"
+                [(ngModel)]="assetMasterService.formAssetMasterData.assetTypeId" class="form-control" required>
+            <option value=0 selected disabled>---select Asset Type---</option>
+            <option *ngFor="let asset of assetMasterService.assetTypes" value="{{asset.assetTypeId}}">
+                {{asset.name}}
             </option>
-        </select>-->
+        </select>
         <!--Validation Error message-->
-        <!--
-                <div class="validation-error" *ngIf="departmentid.touched && departmentid.invalid">
-                    <div *ngIf="departmentid.errors.required">
-                        Department Id is invalid or required
+        
+                <div class="validation-error" *ngIf="assetTypeId.touched && assetTypeId.invalid">
+                    <div *ngIf="assetTypeId.errors.required">
+                        Asset Type is invalid or required
 
                     </div>
                 </div>
         </div>
-        -->
+
+        <div class="form-group">
+            <label for="">Asset Name</label>
+            <select name="assetDefId" id="assetDefId" #assetDefId="ngModel"
+                [(ngModel)]="assetMasterService.formAssetMasterData.assetDefId" class="form-control" required>
+            <option value=0 selected disabled>---select Asset Name---</option>
+            <option *ngFor="let asset of assetMasterService.assetDef" value="{{asset.id}}">
+                {{asset.assetName}}
+            </option>
+        </select>
+        <!--Validation Error message-->
+        
+                <div class="validation-error" *ngIf="assetTypeId.touched && assetTypeId.invalid">
+                    <div *ngIf="assetTypeId.errors.required">
+                        Asset Type is invalid or required
+
+                    </div>
+                </div>
+        </div>
         <!--active-->
         <div class="form-group">
             <div class="form-check">

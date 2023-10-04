@@ -3,6 +3,7 @@ import { AssetMaster } from '../models/asset-master';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { AssetDefinition, AssetType } from '../models/asset-definition.model';
 
 
 @Injectable({
@@ -14,16 +15,20 @@ export class AssetMasterService {
   formAssetMasterData: AssetMaster = new AssetMaster();
 
 
-  //list of Employees
+  //list of assets
   assets: AssetMaster[];
 
+  //asset type
+  assetTypes: AssetType[];
 
+  //asset definition
+  assetDef: AssetDefinition[];
 
   constructor(private httpClient: HttpClient) { }
-  //1. Get all employees - promises
+  //1. Get all assets - promises
 
   getAllAssets(): void {
-    this.httpClient.get(environment.apiUrl + '/api/asset')
+    this.httpClient.get(environment.apiUrl + '/api/assets')
       .toPromise()
       .then(response => {
         console.log(response);
@@ -36,7 +41,7 @@ export class AssetMasterService {
         });
   }
 
-  //2.get all employees - observable types
+  //2.get all assets - observable types
   getAllAssetList(): Observable<any> {
     return this.httpClient.get(environment.apiUrl + '/api/assets')
   }
@@ -45,6 +50,29 @@ export class AssetMasterService {
   insertAsset(assetMaster:AssetMaster): Observable<any>{
       return this.httpClient.post(environment.apiUrl + '/api/asset',assetMaster);
   }
+  //disable
+  disableAsset(id:number){
+    return this.httpClient.delete(environment.apiUrl + '/api/asset/disable/'+id);
+  }
+
+  //get all asset definitions
+  getAllAssetDef(): void {
+    this.httpClient.get(environment.apiUrl + '/api/assetdefinitions')
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.assetDef = response as AssetDefinition[];
+
+      },
+        error => {
+          console.log(error);
+
+        });
+  }
+
+  //get all asset Types
+
+
 
    
 }

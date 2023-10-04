@@ -5,14 +5,15 @@
       <div *ngFor="let assetDefinition of assetDefinitions" class="mb-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{ assetDefinition.assetName }}</h5>
-            <p>Asset Type: {{ assetDefinition.assetType.name }}</p> <!-- Display Asset Type -->
-            <button class="btn btn-primary" (click)="editAssetDefinition(assetDefinition)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
+            <div *ngIf="assetDefinition?.assetName"> <!-- Check if assetName is not null or undefined -->
+              <h5 class="card-title">{{ assetDefinition.assetName }}</h5>
+              <p>Asset Type: {{ assetDefinition.assetType.assetType }}</p> <!-- Display Asset Type -->
+              <button class="btn btn-primary" (click)="editAssetDefinition(assetDefinition)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   
     <div class="col-md-6">
       <div *ngIf="selectedAssetDefinition">
@@ -48,7 +49,7 @@
           <select name="assetClassId" id="assetClassId" #assetClassId="ngModel"
           [(ngModel)]="newAssetTypeId" name="newAssetType" class="form-control" required>
             <option value="0" selected disabled>===========SELECT ASSET TYPE===========</option>
-            <option *ngFor="let assettype of assetDefinitions" value="{{assetype.id}}">{{ assettype.assetType.assetType}}</option>
+            <option *ngFor="let assettype of assetTypeService.asset" value="{{assettype.id}}">{{assettype.assetType}}</option>
           </select>
         </div>
 

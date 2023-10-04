@@ -50,5 +50,6 @@ export class AssetDefinitionService {
   getAssetClasses(): Observable<AssetClass[]> {
     return this.http.get<AssetClass[]>(this.apiUrlForClasses);
   }
+  
 }
 

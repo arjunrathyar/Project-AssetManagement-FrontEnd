@@ -39,6 +39,7 @@ export class AssetService {
       .toPromise()
       .then(response => {
         console.log(response)
+        console.log("heyyy")
         this.asset = response as AssetType[]
       },
         error => {

@@ -65,7 +65,7 @@
           <select name="assetClassId" id="assetClassId" #assetClassId="ngModel"
           [(ngModel)]="newAssetTypeId" name="newAssetType" class="form-control" required>
             <option value="0" selected disabled>===========SELECT ASSET TYPE===========</option>
-            <option *ngFor="let assettype of assetService.asset" value="{{assettype.id}}">{{ assettype.assetType }}</option>
+            <option *ngFor="let assettype of assetTypeService.assetDefinitions" value="{{assettype.id}}">{{ assettype.assetType }}</option>
           </select>
         </div>
 

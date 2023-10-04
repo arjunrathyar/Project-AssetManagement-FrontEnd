@@ -3,6 +3,7 @@ import { PurchaseOrder } from '../models/purchase-order';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Vendor } from '../models/vendor';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class PurchaseOrderService {
 
   // List of PurchaseOrders
   purchaseOrders: PurchaseOrder[];
+
+  //List of Vendors
+  vendors: Vendor[];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -46,4 +50,22 @@ export class PurchaseOrderService {
   deletePurchaseOrders(id: number): Observable<any> {
     return this.httpClient.delete(environment.apiUrl + "/api/purchaseorders/" + id);
   }
+
+
+  
+  //get vendors
+  getAllVendors(): void {
+    this.httpClient.get(environment.apiUrl + "/api/vendors")
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.vendors = response as Vendor[];   //storing in array
+      },
+        error => {
+          console.log('Error');
+        }
+      );
+  }
+
+
 }

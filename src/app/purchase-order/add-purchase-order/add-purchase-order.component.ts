@@ -13,6 +13,7 @@ export class AddPurchaseOrderComponent implements OnInit {
   constructor(public purchaseOrderService: PurchaseOrderService,private router: Router) { }
 
   ngOnInit(): void {
+    this.purchaseOrderService.getAllVendors();
   }
 
   addPurchaseOrder(form: NgForm){

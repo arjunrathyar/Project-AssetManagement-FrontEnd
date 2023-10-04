@@ -80,7 +80,7 @@
                 <td>{{purchaseOrder.assetDeliveryDate | date: "dd-MMM-yyyy"}}</td>
                 <td>{{purchaseOrder.status.status}}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-danger" (click)="deleteEmployee(employee.id)">
+                    <button type="button" class="btn btn-sm btn-danger" (click)="deletePurchaseOrders(purchaseOrder.id)">
                         <i class="fa fa-trash">
                         </i></button>
 

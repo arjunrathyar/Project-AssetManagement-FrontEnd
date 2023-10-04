@@ -48,14 +48,14 @@
 
         <div class="form-group"> 
             <label>Quantity</label>
-            <input name="quantity" type="number" #quantity="ngModel"
+            <input name="assetQuantity" type="number" #assetQuantity="ngModel"
                 [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetQuantity" class="form-control"
                 placeholder="Enter Quantity" required
-                [ngClass]="{'is-invalid':quantity.touched && quantity.invalid}" />
+                [ngClass]="{'is-invalid':assetQuantity.touched && assetQuantity.invalid}" />
 
             <!--Validation Error Message-->
-            <div class="validation-error" *ngIf="quantity.touched && quantity.invalid">
-                <div *ngIf="quantity.errors.required">
+            <div class="validation-error" *ngIf="assetQuantity.touched && assetQuantity.invalid">
+                <div *ngIf="assetQuantity.errors.required">
                     Quantity is invalid or required!
                 </div>
             </div>

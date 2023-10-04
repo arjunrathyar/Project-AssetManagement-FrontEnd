@@ -5,10 +5,10 @@ import { UserHomeComponent } from './user-home/user-home.component';
 
 const routes: Routes = [
   {
-    path : 'admin' , component : AdminHomeComponent
+    path : 'admin1' , component : AdminHomeComponent
   },
   {
-    path : 'user' , component : UserHomeComponent
+    path : 'user1' , component : UserHomeComponent
   },
 ];
 

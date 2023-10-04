@@ -10,13 +10,15 @@ import { AssetDefinition } from 'src/app/shared/models/asset-definition.model'; 
 })
 export class AssetDefinitionListComponent implements OnInit {
 
-  assetDefinitions: AssetDefinition[];
+  
+  assetDefinitions: AssetDefinition[] = [];
   selectedAssetDefinition: AssetDefinition;
 
   constructor(private assetService: AssetDefinitionService) { }
 
   ngOnInit(): void {
     this.loadAssetDefinitions();
+    
   }
 
   loadAssetDefinitions() {

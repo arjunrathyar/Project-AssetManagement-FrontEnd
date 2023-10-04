@@ -7,6 +7,7 @@ import { PurchaseOrderComponent } from './purchase-order/purchase-order.componen
 import { AssetDefinitionComponent } from './asset-definition/asset-definition.component';
 import { HomeComponent } from './home/home.component';
 import { VendorCreationComponent } from './vendor-creation/vendor-creation.component';
+import { AssetMasterComponent } from './asset-master/asset-master.component';
 
 const routes: Routes = [
 
@@ -26,6 +27,11 @@ const routes: Routes = [
     path: "asset-definition",
     component: AssetDefinitionComponent,
     loadChildren: () => import('./asset-definition/asset-definition.module').then(x => x.AssetDefinitionModule)
+  },
+  {
+    path: "asset-master",
+    component: AssetMasterComponent,
+    loadChildren: () => import('./asset-master/asset-master.module').then(x => x.AssetMasterModule)
   },
 
   {

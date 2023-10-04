@@ -24,6 +24,7 @@ export class AssetDefinitionComponent implements OnInit {
     // Initialize your data or make API calls here
     this.assetService.getAllAssetDefinitions().subscribe(definitions => {
       this.assetDefinitions = definitions;
+      console.log(this.assetDefinitions)
     });
   }
 

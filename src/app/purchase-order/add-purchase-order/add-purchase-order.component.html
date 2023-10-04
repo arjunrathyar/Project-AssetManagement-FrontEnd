@@ -1,1 +1,75 @@
-<p>add-purchase-order works!</p>
+<div class="jumbotron">
+    <h1 class="display-4">
+        New Purchase Info
+    </h1>
+    <hr>
+</div>
+
+
+<div class="container">
+    <h3>ENTER DETAILS</h3>
+    <hr>
+    <!--Template Driven Form-->
+    <form name="frmPurchaseOrder" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+
+        <!--
+
+        <div class="form-group">
+            <input type="hidden" readonly name="id" [(ngModel)]="purchaseOrderService.formPurchaseOrderData.id" />
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" readonly name="assetPurchaseOrderNumber" [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetPurchaseOrderNumber" />
+        </div>
+
+        -->
+
+        <div class="form-group">
+            <label>Vendor Name</label>
+            <select name="assetVendorID" id="assetVendorID" #assetVendorID="ngModel"
+                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetVendorID" class="form-control text-center"
+                required>
+                <option value="0" selected disabled>===========SELECT===========</option>
+                <option *ngFor="let vendor of purchaseOrderService.vendors" value="{{vendor.id}}">
+                    {{vendor.vendorName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Asset Definition</label>
+            <select name="assetDefId" id="assetDefId" #assetDefId="ngModel"
+                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetDefId" class="form-control text-center"
+                required>
+                <option value="0" selected disabled>===========SELECT===========</option>
+                <option *ngFor="let definition of purchaseOrderService.definitions" value="{{definition.id}}">
+                    {{definition.assetName}}</option>
+            </select>
+        </div>
+
+
+        <!--
+        <div class="form-group">
+            <label>Asset Type</label>
+            <select name="assetTypeId" id="assetTypeId" #assetTypeId="ngModel"
+                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetTypeId" class="form-control text-center" required>
+                <option value="0" selected disabled>===========SELECT===========</option>
+                <option *ngFor="let type of purchaseOrderService.types" value="{{type.id}}">
+                    {{type.assetType}}</option>
+            </select>
+        </div>
+        -->
+
+        <div class="form-group">
+            <label>Quantity</label>
+
+        </div>
+
+
+        <!--Submit-->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control" [disabled]="!(form.valid && form.dirty)">
+                SUBMIT
+            </button>
+        </div>
+    </form>
+</div>

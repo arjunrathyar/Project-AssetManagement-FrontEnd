@@ -65,7 +65,7 @@ export class PurchaseOrderService {
     this.httpClient.get(environment.apiUrl + "/api/vendors")
       .toPromise()
       .then(response => {
-        console.log(response);
+        //console.log(response);
         this.vendors = response as Vendor[];   //storing in array
       },
         error => {
@@ -80,7 +80,7 @@ export class PurchaseOrderService {
     this.httpClient.get(environment.apiUrl + "/api/assetdefinitions")
       .toPromise()
       .then(response => {
-        console.log(response);
+        //console.log(response);
         this.definitions = response as AssetDefinition[];   //storing in array
       },
         error => {
@@ -95,7 +95,7 @@ export class PurchaseOrderService {
     this.httpClient.get(environment.apiUrl + "/api/assettype")
       .toPromise()
       .then(response => {
-        console.log(response);
+        //console.log(response);
         this.types = response as AssetType[];   //storing in array
       },
         error => {

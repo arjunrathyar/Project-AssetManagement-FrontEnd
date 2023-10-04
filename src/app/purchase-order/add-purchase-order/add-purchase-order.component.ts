@@ -21,7 +21,7 @@ export class AddPurchaseOrderComponent implements OnInit {
   addPurchaseOrder(form: NgForm){
     console.log("Inserting...");
     this.purchaseOrderService.insertPurchaseOrders(form.value).subscribe((response)=>{
-      console.log(response);
+      //console.log(response);
     },
     (error)=>{
       console.log(error);
@@ -31,11 +31,18 @@ export class AddPurchaseOrderComponent implements OnInit {
   //submit form
 
   onSubmit(form:NgForm){
+    form.value.assetTypeId=1;
+    form.value.assetQuantity=1;
+
+    form.value.assetPurchaseOrderNumber=Math.floor(Math.random()*90000) + 10000;
+    form.value.assetOrderDate=new Date().toJSON().slice(0,10).split('-').join('-');
+    form.value.assetStatusID=1;
+    form.value.active=true;
     console.log(form.value);
     //insert
     this.addPurchaseOrder(form);
     form.reset();
-    this.router.navigate(['/purchase-order/list'])
+    //this.router.navigate(['/purchase-order/list'])
   }
 
 }

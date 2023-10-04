@@ -12,6 +12,8 @@
     <!--Template Driven Form-->
     <form name="frmPurchaseOrder" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
+        <!--
+
         <div class="form-group">
             <input type="hidden" readonly name="id" [(ngModel)]="purchaseOrderService.formPurchaseOrderData.id" />
         </div>
@@ -19,6 +21,8 @@
         <div class="form-group">
             <input type="hidden" readonly name="assetPurchaseOrderNumber" [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetPurchaseOrderNumber" />
         </div>
+
+        -->
 
         <div class="form-group">
             <label>Vendor Name</label>

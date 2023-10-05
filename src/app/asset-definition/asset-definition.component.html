@@ -8,8 +8,8 @@
             <div *ngIf="assetDefinition?.assetName"> <!-- Check if assetName is not null or undefined -->
               <h5 class="card-title">{{ assetDefinition.assetName }}</h5>
               <p>Asset Type: {{ assetDefinition.assetType.assetType }}</p> <!-- Display Asset Type -->
-              <button class="btn btn-primary" (click)="editAssetDefinition(assetDefinition)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
+              <button class="btn btn-sm btn-danger" (click)="editAssetDefinition(assetDefinition)">Delete</button>
+              <button class="btn btn-sm btn-primary mr-2" (click)="deleteAssetDefinition(assetDefinition)">Edit</button>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { AssetDefinition, AssetType } from '../models/asset-definition.model';
+import { Vendor } from '../models/vendor';
 
 
 @Injectable({
@@ -23,6 +24,9 @@ export class AssetMasterService {
 
   //asset definition
   assetDef: AssetDefinition[];
+
+  //list of vendors
+  vendors: Vendor[];
 
   constructor(private httpClient: HttpClient) { }
   //1. Get all assets - promises
@@ -48,8 +52,20 @@ export class AssetMasterService {
 
   //3.Insert
   insertAsset(assetMaster:AssetMaster): Observable<any>{
+    console.log("In insert asset");
+    console.log(assetMaster);
+    
       return this.httpClient.post(environment.apiUrl + '/api/asset',assetMaster);
+      
+      
   }
+//3.Update
+updateAsset(assetMaster:AssetMaster): Observable<any>{
+      
+    
+  return this.httpClient.put(environment.apiUrl + '/api/asset',assetMaster);
+}
+
   //disable
   disableAsset(id:number){
     return this.httpClient.delete(environment.apiUrl + '/api/asset/disable/'+id);
@@ -70,7 +86,35 @@ export class AssetMasterService {
         });
   }
 
-  //get all asset Types
+    //get all asset types
+    getAllAssetType(): void {
+      this.httpClient.get(environment.apiUrl + '/api/assettype')
+        .toPromise()
+        .then(response => {
+          console.log(response);
+          this.assetTypes = response as AssetType[];
+  
+        },
+          error => {
+            console.log(error);
+  
+          });
+    }
+
+  //get all vendors
+  getAllVendors(): void {
+    this.httpClient.get(environment.apiUrl + '/api/vendors')
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.vendors = response as Vendor[];
+
+      },
+        error => {
+          console.log(error);
+
+        });
+  }
 
 
 

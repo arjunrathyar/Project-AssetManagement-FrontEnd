@@ -39,11 +39,28 @@ export class PurchaseOrderService {
 
   //Update
   updatePurchaseOrders(purchaseOrders: PurchaseOrder): Observable<any> {
+    console.log("Update");
+    
     return this.httpClient.put(environment.apiUrl + "/api/purchaseorders", purchaseOrders);
   }
 
   //Delete
   deletePurchaseOrders(id: number): Observable<any> {
     return this.httpClient.delete(environment.apiUrl + "/api/purchaseorders/" + id);
+  }
+
+
+  //get some orders whose status is 4
+  getSomeOrders(): void {
+    this.httpClient.get(environment.apiUrl + '/api/pendingpurchaseorders')
+      .toPromise()
+      .then(response => {
+        console.log(response)
+        this.purchaseOrders = response as PurchaseOrder[]
+      },
+        error => {
+          console.log(error)
+        });
+
   }
 }

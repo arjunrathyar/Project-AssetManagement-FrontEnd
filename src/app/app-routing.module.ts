@@ -20,6 +20,8 @@ const routes: Routes = [
   //lazy loading
   { path: 'vendor', component: VendorCreationComponent, loadChildren: () => import('./vendor-creation/vendor-creation.module')
   .then(x => x.VendorCreationModule) },
+
+  
   { path: 'purchase', component: PurchaseOrderComponent, loadChildren: () => import('./purchase-order/purchase-order.module')
   .then(x => x.PurchaseOrderModule) },
 

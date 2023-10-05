@@ -56,20 +56,20 @@ export class VendorCreationService {
   // Update
   updateVendor(vendors: Vendor): Observable<any>{
 
-    return this.httpClient.put(environment.apiUrl + '/api/vendors/edit',vendors);
+    return this.httpClient.put(environment.apiUrl + '/api/vendors',vendors);
 
   }
   //Disable
   disableVendor(id: number){
 
-    return this.httpClient.delete(environment.apiUrl + '/api/vendors/disable/'+id);
+    return this.httpClient.delete(environment.apiUrl + '/api/vendors/'+id);
 
  }
  // Get all assets
  getAllAssets(): void{
 
   //getting the data
-  this.httpClient.get(environment.apiUrl + '/api/assetdefinitions')
+  this.httpClient.get(environment.apiUrl + '/api/assettype')
   .toPromise()
   .then(response =>{
     console.log(response);

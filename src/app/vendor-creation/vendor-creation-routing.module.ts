@@ -10,7 +10,7 @@ const routes: Routes = [
   //employee-list
   {path: 'list', component:VendorListComponent},
   //employee-edit
-  {path: 'edit', component:VendorEditComponent}
+  {path: 'edit/:id', component:VendorEditComponent}
 ];
 
 

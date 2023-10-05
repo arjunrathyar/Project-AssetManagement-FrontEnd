@@ -1,5 +1,5 @@
 export class AssetType {
-    id: number;
-    assetType: string;
+    id: number=0;
+    assetType: string="";
   }
   

@@ -11,47 +11,45 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-
   //declare variables
-  loginForm!: FormGroup;
-  isSubmitted = false;
+  loginForm!: FormGroup;   //exclamation means that empty fields could be accomodated...
+  isSubmitted: boolean = false;
   error: string = '';
 
   loginUser?: User = new User();
-
-
-
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router) {
+
+  }
 
 
-  //life cycle Hook
+  //life cycle
   ngOnInit(): void {
+
 
     // create a reactive form
     this.loginForm = this.formBuilder.group({
-
       userName: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+
   }
 
-  // control for validation
+  //get controls for validation
   get formControls() {
     return this.loginForm.controls;
   }
 
-  //functionality
-
+  //funtionality
   loginCredentials(): void {
 
     //setting value to issubmitted
     this.isSubmitted = true;
 
-    //ckecking form is valid
+    //checking form is valid
     if (this.loginForm.invalid) {
-      this.error = "Please enter Username and Password"
+      this.error = "Please Check Your UserName And Password !!";
       return;
     }
 
@@ -59,56 +57,41 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.error = "";
       console.log(this.loginForm.value);
-    }
 
-    //call service for login
-    this.authService.loginVerify(this.loginForm.value)
-      .subscribe(Response => {
-        console.log(Response);
-
-        if (Response == null) {
-          this.error = "Invalid Username and Password";
-        }else {
-          //session storage
-        sessionStorage.setItem("USER_NAME",Response.data.UserName);
-        sessionStorage.setItem("ROLE_ID",Response.data.role);
+      //call service for login i.e., checkin login functionality
+      this.authService.loginVerify(this.loginForm.value).subscribe(response => {
+        console.log(response);
 
 
-        //local storage
-        localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
-
-        console.log(sessionStorage.getItem("USER_NAME"));
-          //redirect to the repective page
-          this.router.navigate(['/auth/login']);
-        }
-
-
-        // based on role ID -- authrntication
-
-        if(Response.data.role===1){
+        //role based authentication
+        if (response.data.role == 1) {
+          //this.router.navigate(['/employees/list']);
           console.log("admin");
+          localStorage.setItem("USER_NAME", response.data.UserName);
+          localStorage.setItem("ACCESS_ROLE", response.data.role);
+          sessionStorage.setItem("USER_NAME", response.data.UserName);
+          localStorage.setItem("JWT_TOKEN", response.data.ACCESSTOKEN);
 
-          localStorage.setItem("USER_NAME",Response.data.UserName);
-          localStorage.setItem("ROLE_ID",Response.data.role);
-          localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
-
-          this.router.navigate(['/home/admin']);
+          this.router.navigate(['auth/admin']);
         }
-        else if (Response.data.role==2) {
-          console.log("manager");
+        else if (response.data.role == 2) {
+          console.log("user");
+          localStorage.setItem("USER_NAME", response.data.UserName);
+          localStorage.setItem("ACCESS_ROLE", response.data.role);
+          sessionStorage.setItem("USER_NAME", response.data.UserName);
+          localStorage.setItem("JWT_TOKEN", response.data.ACCESSTOKEN);
 
-          localStorage.setItem("USER_NAME",Response.data.UserName);
-          localStorage.setItem("ROLE_ID",Response.data.role);
-          localStorage.setItem("TOKEN", Response.data.ACCESSTOKEN);
-
-          this.router.navigate(['home/user']);
+          this.router.navigate(['auth/user']);
         }
+        
         else {
-          this.error = " Sorry ! invalid credentials not allowes to this system"
+          this.error = "Sorry invalid credentials!! You are not allowed to enter the system..";  
         }
-  
-      })
-  }
+      },
+      (error)=>{
+        this.error = "Invalid Credentials";
+      });
+    }
+  }
 
 }
-

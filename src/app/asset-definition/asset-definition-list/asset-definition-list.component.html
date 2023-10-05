@@ -1,20 +1,43 @@
-<!-- Iterate through each assetDefinition -->
-<div *ngFor="let assetDefinition of assetDefinitions">
-  {{ assetDefinition.assetName }}
-  <button (click)="editAssetDefinition(assetDefinition)">Edit</button>
-  <button (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
-</div>
-
-<!-- Display selectedAssetDefinition if it exists -->
-<div *ngIf="selectedAssetDefinition">
-  <h2>Edit Asset Definition</h2>
-  <form (submit)="updateAssetDefinition()">
-    <label for="assetName">Asset Name:</label>
-    <!-- Use ngModel to bind the input to selectedAssetDefinition.assetName -->
-    <input type="text" [(ngModel)]="selectedAssetDefinition.assetName" name="assetName" required><br>
-
-    <!-- Add other fields here if needed -->
-
-    <button type="submit">Save</button>
-  </form>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Asset Definitions
+        </div>
+        <div class="card-body">
+          <!-- Iterate through each assetDefinition -->
+          <div *ngFor="let assetDefinition of assetDefinitions" class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h5 class="card-title">{{ assetDefinition.assetName }}</h5>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-primary mr-2" (click)="editAssetDefinition(assetDefinition)">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteAssetDefinition(assetDefinition)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6" *ngIf="selectedAssetDefinition">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Edit Asset Definition
+        </div>
+        <div class="card-body">
+          <form (submit)="updateAssetDefinition()">
+            <div class="form-group">
+              <label for="assetName">Asset Name:</label>
+              <input type="text" [(ngModel)]="selectedAssetDefinition.assetName" name="assetName" class="form-control" required>
+              <div class="invalid-feedback" *ngIf="formControls.assetName.invalid && (formControls.assetName.dirty || formControls.assetName.touched)">
+                Asset Name is required.
+              </div>
+            </div>
+            <!-- Add other fields here if needed -->
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

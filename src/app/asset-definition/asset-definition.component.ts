@@ -24,6 +24,7 @@ export class AssetDefinitionComponent implements OnInit {
     // Initialize your data or make API calls here
     this.assetService.getAllAssetDefinitions().subscribe(definitions => {
       this.assetDefinitions = definitions;
+      console.log(this.assetDefinitions)
     });
   }
 
@@ -63,14 +64,16 @@ export class AssetDefinitionComponent implements OnInit {
     }
   }
 
-  deleteAssetDefinition(): void {
-    if (this.selectedAssetDefinition) {
+  deleteAssetDefinition(assetDefinition: AssetDefinition): void {
+this.selectedAssetDefinition = assetDefinition;
+     if (this.selectedAssetDefinition) {
+      
       this.assetService.deleteAssetDefinition(this.selectedAssetDefinition.id)
         .subscribe(() => {
           console.log('Asset deleted successfully');
           this.selectedAssetDefinition = null;
           this.assetDefinitions = this.assetDefinitions.filter(def => def.id !== this.selectedAssetDefinition?.id);
         });
-    }
+     }
   }
 }  

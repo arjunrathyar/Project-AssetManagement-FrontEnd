@@ -1,31 +1,33 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="text-center">
-      <h1 class="mb-4">  Asset Management App</h1>
-      <div class="col-md-6 mx-auto"> <!-- Added mx-auto to center the column -->
-        <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
-          <!-- Username -->
-          <div class="form-group">
-            <input type="text" class="form-control" formControlName="userName" placeholder="Enter Username">
-            <div class="text-danger" *ngIf="isSubmitted && formControls.userName.errors?.required">
-              User Name is invalid or required
-            </div>
+<div class="container d-flex justify-content-center align-items-center vh-100  inputD">
+  <div class="text-center">
+    <h1 class="mb-4"> ASSET MANAGER</h1>
+    <!-- <div class="col-md-6 mx-auto"> -->
+    <!-- Added mx-auto to center the column -->
+    <div>
+      <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
+        <!-- Username -->
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Enter Username">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.userName.errors?.required">
+            Check Your UserName !!
           </div>
-  
-          <!-- Password -->
-          <div class="form-group">
-            <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
-            <div class="text-danger" *ngIf="isSubmitted && formControls.password.errors?.required">
-              Password is invalid or required
-            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.password.errors?.required">
+            Check Your Password !!
           </div>
-  
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary btn-block">Submit</button>
-  
-          <!-- Error Message -->
-          <div class="text-danger mt-2" *ngIf="error">{{ error }}</div>
-        </form>
-      </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+        <br>
+        <!-- Error Message -->
+        <div class="text-danger mt-2" *ngIf="error">{{ error }}</div>
+      </form>
     </div>
   </div>
-  
+</div>

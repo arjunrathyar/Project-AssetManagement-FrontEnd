@@ -16,4 +16,19 @@ export class ListPurchaseOrderComponent implements OnInit {
     this.purchaseOrderService.getAllPurchaseOrdersList();
   }
 
+
+  deletePurchaseOrders(id: number) {
+    if (confirm('ARE YOU SURE that you want to delete this?')) {
+      this.purchaseOrderService.deletePurchaseOrders(id)
+        .subscribe((response) => {
+          console.log(response);
+          //this.router.navigate(['/employees/list']);
+          this.purchaseOrderService.getAllPurchaseOrdersList();
+        }, (error) => {
+          console.log(error);
+        }
+        )
+    }
+  }
+
 }

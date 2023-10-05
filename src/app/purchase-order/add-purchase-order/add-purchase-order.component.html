@@ -1,18 +1,19 @@
-<div class="jumbotron">
-    <h1 class="display-4">
-        New Purchase Info
-    </h1>
-    <hr>
-</div>
+<div class="container justify-content-center align-items-center vh-100">
+    <div class="jumbotron jumbotronClass">
+        <h1 class="display-4 jumboTexts text-center">
+            NEW PURCHASE INFO
+        </h1>
+        <hr>
+    </div>
 
 
-<div class="container">
-    <h3>ENTER DETAILS</h3>
-    <hr>
-    <!--Template Driven Form-->
-    <form name="frmPurchaseOrder" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <div class="container jumboSubTexts">
+        <h3>ENTER DETAILS</h3>
+        <hr>
+        <!--Template Driven Form-->
+        <form name="frmPurchaseOrder" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
-        <!--
+            <!--
 
         <div class="form-group">
             <input type="hidden" readonly name="id" [(ngModel)]="purchaseOrderService.formPurchaseOrderData.id" />
@@ -24,30 +25,45 @@
 
         -->
 
-        <div class="form-group">
-            <label>Vendor Name</label>
-            <select name="assetVendorID" id="assetVendorID" #assetVendorID="ngModel"
-                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetVendorID" class="form-control text-center"
-                required>
-                <option value="0" selected disabled>===========SELECT===========</option>
-                <option *ngFor="let vendor of purchaseOrderService.vendors" value="{{vendor.id}}">
-                    {{vendor.vendorName}}</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label>Vendor Name</label>
+                <select name="assetVendorID" id="assetVendorID" #assetVendorID="ngModel"
+                    [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetVendorID"
+                    class="form-control" required>
+                    <option value="0" selected disabled>SELECT</option>
+                    <option *ngFor="let vendor of purchaseOrderService.vendors" value="{{vendor.id}}">
+                        {{vendor.vendorName}}</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label>Asset Definition</label>
-            <select name="assetDefId" id="assetDefId" #assetDefId="ngModel"
-                [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetDefId" class="form-control text-center"
-                required>
-                <option value="0" selected disabled>===========SELECT===========</option>
-                <option *ngFor="let definition of purchaseOrderService.definitions" value="{{definition.id}}">
-                    {{definition.assetName}}</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label>Asset Definition</label>
+                <select name="assetDefId" id="assetDefId" #assetDefId="ngModel"
+                    [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetDefId" class="form-control"
+                    required>
+                    <option value="0" selected disabled>SELECT</option>
+                    <option *ngFor="let definition of purchaseOrderService.definitions" value="{{definition.id}}">
+                        {{definition.assetName}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input name="assetQuantity" type="number" #assetQuantity="ngModel"
+                    [(ngModel)]="purchaseOrderService.formPurchaseOrderData.assetQuantity" class="form-control"
+                    placeholder="Enter Quantity" required
+                    [ngClass]="{'is-invalid':assetQuantity.touched && assetQuantity.invalid}" />
+
+                <!--Validation Error Message-->
+                <div class="validation-error" *ngIf="assetQuantity.touched && assetQuantity.invalid">
+                    <div *ngIf="assetQuantity.errors.required">
+                        Quantity is invalid or required!
+                    </div>
+                </div>
+            </div>
 
 
-        <!--
+            <!--
         <div class="form-group">
             <label>Asset Type</label>
             <select name="assetTypeId" id="assetTypeId" #assetTypeId="ngModel"
@@ -59,17 +75,13 @@
         </div>
         -->
 
-        <div class="form-group">
-            <label>Quantity</label>
 
-        </div>
-
-
-        <!--Submit-->
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary form-control" [disabled]="!(form.valid && form.dirty)">
-                SUBMIT
-            </button>
-        </div>
-    </form>
+            <!--Submit-->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary form-control" [disabled]="!(form.valid && form.dirty)">
+                    SUBMIT
+                </button>
+            </div>
+        </form>
+    </div>
 </div>

@@ -5,6 +5,7 @@ import { AssetDefinition } from '../models/asset-definition.model';
 import { AssetClass } from '../models/asset-definition.model';
 import { AssetType } from '../models/asset-definition.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -50,6 +51,5 @@ export class AssetDefinitionService {
   getAssetClasses(): Observable<AssetClass[]> {
     return this.http.get<AssetClass[]>(this.apiUrlForClasses);
   }
-  
 }
 

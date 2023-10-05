@@ -15,17 +15,34 @@ export class AssetAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.assetMasterService.getAllAssetDef()
+    this.assetMasterService.getAllAssetType()
+    this.assetMasterService.getAllVendors()
   }
  //insert
- addAsset(form: NgForm) {
+ addAsset(form?: NgForm) {
   console.log('Inserting...');
+  console.log(form.value);
+  
+  // form.value.assetTypeId=sessionStorage.getItem('assetTypeId');
+  form.value.vendorId=sessionStorage.getItem('assetVendorID');
+  console.log(form.value.vendorId);
+  
+  form.value.assetDefId=sessionStorage.getItem('assetDefId');
+  // sessionStorage.removeItem('assetTypeId');
+  sessionStorage.removeItem('assetVendorID');
+  sessionStorage.removeItem('assetDefId');
   this.assetMasterService.insertAsset(form.value).subscribe(
+    
+    
     (response) => {
+      
       console.log(response);
 
     },
     (error) => {
       console.log(error);
+      console.log("h");
+      
 
     }
   )
@@ -34,11 +51,13 @@ export class AssetAddComponent implements OnInit {
 
 //submit form
 onSubmit(form:NgForm) {
+
+  
   console.log(form.value);
   //Insert
   this.addAsset(form);
   form.resetForm();
-  this.router.navigate(["/assets/list"])
+  this.router.navigate(["/asset-master/list"])
   
 }
 

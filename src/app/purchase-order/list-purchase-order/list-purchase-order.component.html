@@ -17,7 +17,7 @@
                 </a>
             </div>
         </div>
-        
+
     </div>
 
     <!--
@@ -80,7 +80,8 @@
             </thead>
             <tbody>
 
-                <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders | filter: searchTerm">
+                <tr
+                    *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders | filter: searchTerm | paginate: { itemsPerPage: pageSize, currentPage: page}">
                     <!-- <td>{{purchaseOrder.id}}</td> -->
                     <td>{{purchaseOrder.assetPurchaseOrderNumber}}</td>
                     <!-- <td>{{purchaseOrder.assetType.assetType}}</td> -->
@@ -117,4 +118,10 @@
             </tbody>
         </table>
     </div>
+
+    <!--Footer-->
+    <div class="footer custom-page">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+
 </div>

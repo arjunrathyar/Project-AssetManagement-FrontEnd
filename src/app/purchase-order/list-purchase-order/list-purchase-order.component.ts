@@ -10,7 +10,7 @@ import { PurchaseOrderService } from "../../shared/services/purchase-order.servi
 export class ListPurchaseOrderComponent implements OnInit {
 
    //declare variable
-   searchTerm ='';
+   searchTerm =''; 
    page: number=1;
    pageSize=5;
 

@@ -10,3 +10,45 @@
     float: right;
     //border-radius: 20px;
 }
+.custom-page{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+    //border-radius: 20px;
+}
+.jumbotronClass {
+    background-image: url('../../../assets/img/7.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .jumboTexts {
+    color: wheat;
+    font-weight: bold;
+  }
+  
+  .jumboSubTexts {
+    color: white;
+  }
+  
+  hr {
+    border: 1px solid wheat;
+  }
+  
+  :host {
+    display: block;
+    background-image: url('../../../assets/img/7.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .ft-page custom-page{
+    background-image: url('../../../assets/img/7.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+  }

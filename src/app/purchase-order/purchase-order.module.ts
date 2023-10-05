@@ -7,6 +7,8 @@ import { AddPurchaseOrderComponent } from './add-purchase-order/add-purchase-ord
 import { EditPurchaseOrderComponent } from './edit-purchase-order/edit-purchase-order.component';
 import { ListPurchaseOrderComponent } from './list-purchase-order/list-purchase-order.component';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    PurchaseOrderRoutingModule
+    PurchaseOrderRoutingModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ]
 })
 export class PurchaseOrderModule { }

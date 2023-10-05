@@ -9,6 +9,11 @@ import { PurchaseOrderService } from "../../shared/services/purchase-order.servi
 })
 export class ListPurchaseOrderComponent implements OnInit {
 
+   //declare variable
+   searchTerm ='';
+   page: number=1;
+   pageSize=5;
+
   constructor(public purchaseOrderService: PurchaseOrderService, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,7 +23,7 @@ export class ListPurchaseOrderComponent implements OnInit {
 
 
   deletePurchaseOrders(id: number) {
-    if (confirm('ARE YOU SURE that you want to delete this?')) {
+    if (confirm('ARE YOU SURE TO DELETE?')) {
       this.purchaseOrderService.deletePurchaseOrders(id)
         .subscribe((response) => {
           console.log(response);

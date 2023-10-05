@@ -5,13 +5,23 @@
         </h1>
         <hr>
         <br>
-        <a [routerLink]="['/purchase-order/add']" role="button" class="btn btn-primary">
-            <span><i class="fa fa-plus">Add Purchase</i></span>
-        </a>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <input type="search" class="form-control custom-margin-search" placeholder="Search Here..."
+                    [(ngModel)]="searchTerm">
+            </div>
+            <div class="col-sm-4">
+                <a [routerLink]="['/purchase-order/add']" role="button" class="btn btn-primary custom-margin-button">
+                    <span><i class="fa fa-plus">Add Purchase</i></span>
+                </a>
+            </div>
+        </div>
+        
     </div>
 
     <!--
-<div class="container">
+<div class="container"> 
     <br>
     <a [routerLink]="['/purchase-order/add']" role="button" class="btn btn-primary custom-margin">
         <span><i class="fa fa-plus">Add Purchase</i></span>
@@ -70,7 +80,7 @@
             </thead>
             <tbody>
 
-                <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders">
+                <tr *ngFor="let purchaseOrder of purchaseOrderService.purchaseOrders | filter: searchTerm">
                     <!-- <td>{{purchaseOrder.id}}</td> -->
                     <td>{{purchaseOrder.assetPurchaseOrderNumber}}</td>
                     <!-- <td>{{purchaseOrder.assetType.assetType}}</td> -->

@@ -29,7 +29,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let vendor of vendorCreationService.vendors | filter: searchTerm
-            | paginate: { itemsPerPage: pageSize, currentPage: page }">
+            | paginate: { itemsPerPage: pageSize, currentPage: page }"> 
                 <td>{{vendor.id}}</td>
                 <td>{{vendor.vendorName}}</td>
                 <td>{{vendor.vendorType}}</td>

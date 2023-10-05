@@ -1,0 +1,37 @@
+.jumbotronClass {
+    background-image: url('../../../assets/img/7.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  .jumboTexts {
+    color: wheat;
+    font-weight: bold;
+  }
+  
+  .jumboSubTexts {
+    color: white;
+  }
+  
+  hr {
+    border: 1px solid wheat;
+  }
+  .bgbody{
+    background-image: url('../../../assets/img/7.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+  }
+  
+  :host {
+    display: block;
+    background-image: url('../../../assets/img/7.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
